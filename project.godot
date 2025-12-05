@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Divina Comedia - Inferno: O Limbo"
-run/main_scene="uid://bxaycuxxvqqeb"
+run/main_scene="uid://c47fojdgpsgij"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
@@ -24,6 +24,11 @@ window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+Player=""
+Virgilio=""
 
 [input]
 
@@ -52,6 +57,13 @@ attack={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player_hitbox"
+2d_physics/layer_3="Enemy_hitbox"
+2d_physics/layer_4="Hurtbox"
 
 [rendering]
 

@@ -17,7 +17,7 @@ func enter():
 	#zera o relógio
 	timer = 0.0
 	early_press_buffered = false # Reseta o buffer
-	
+	player.attack1.play()
 	#da um impulso no player
 	player.velocity = player.last_direction * lunge_speed
 	#aq fala pra ele ativar a animação com base no nome dela

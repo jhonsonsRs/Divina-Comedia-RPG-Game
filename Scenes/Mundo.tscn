@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://c47fojdgpsgij"]
+
+[ext_resource type="Script" uid="uid://crxrn6h6pro10" path="res://Scripts/GameManager.gd" id="1_jvpnq"]
+[ext_resource type="PackedScene" uid="uid://bxaycuxxvqqeb" path="res://Scenes/Player.tscn" id="2_s44lv"]
+[ext_resource type="PackedScene" uid="uid://bkta55idc8bq3" path="res://Scenes/virgilio.tscn" id="2_v2lyq"]
+
+[sub_resource type="Animation" id="Animation_o2bb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yag4v"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v2lyq"]
+resource_name = "fade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dq4oj"]
+_data = {
+&"RESET": SubResource("Animation_o2bb6"),
+&"fade_in": SubResource("Animation_yag4v"),
+&"fade_out": SubResource("Animation_v2lyq")
+}
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource("1_jvpnq")
+
+[node name="LevelContainer" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_s44lv")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_dq4oj")
+}
+
+[node name="Virgilio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_v2lyq")]
+position = Vector2(54, 34)
+player = NodePath("../Player")

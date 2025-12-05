@@ -16,7 +16,7 @@ var timer: float = 0.0
 func enter():
 	timer = 0.0
 	attack_buffered = false # Reseta o buffer
-	
+	player.attack1.play()
 	player.velocity = player.last_direction * lunge_speed
 	player.animation_tree["parameters/playback"].travel(attack_animation_name)
 	player.animation_tree["parameters/" + attack_animation_name + "/blend_position"] = player.last_direction

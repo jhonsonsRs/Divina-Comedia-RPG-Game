@@ -3,20 +3,26 @@ extends CharacterBody2D
 class_name Player
 
 # Variáveis de Movimento
-var move_speed : float = 100.0
+var move_speed : float = 140.0
 var acceleration : float = 0.4
 var friction : float = 0.8
 var last_direction: Vector2 = Vector2(0, 1) # Começa olhando para baixo
+var health : int = 100
 
-# Referências
+# Exports
 @export var animation_tree : AnimationTree = null
+
+# Onreadys
 @onready var state_machine = $FiniteStateMachine
+@onready var hurtbox : Hurtbox = $Hurtbox
+@onready var attack1 = $AttackSound1
 
 #Qual etapa do combo está
 var combo_step: int = 0
 
 func _ready() -> void:
 	animation_tree.active = true
+	hurtbox.hit_received.connect(_on_hit_received)
 
 func _physics_process(_delta: float) -> void:
 	_move() #calcula a velocidade com base no estado
@@ -53,8 +59,7 @@ func _move():
 		
 	# Aplica atrito (friction) se estiver parado
 	velocity.x = lerp(velocity.x, 0.0, friction)
-	velocity.y = lerp(velocity.y, 0.0, friction)
-	
+	velocity.y = lerp(velocity.y, 0.0, friction)	
 
 func attack():
 	# Verifica se o botão de ataque foi pressionado
@@ -71,3 +76,9 @@ func attack():
 		elif current_state_name.begins_with("Attack"):
 			# Chama a função no estado de ataque atual para ele verificar o timing
 			state_machine.current_state.register_attack_press()
+
+func _on_hit_received(hitbox: Hitbox):
+	var dano_recebido = hitbox.damage
+	print("tomei dano po {dano_recebido}")
+	health -= dano_recebido
+	#quando adicionar: state_machine.change_state("Hurt")
