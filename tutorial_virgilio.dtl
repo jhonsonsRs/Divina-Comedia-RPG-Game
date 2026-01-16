@@ -1,0 +1,36 @@
+join player (dante2) rightmost
+Ai... Minha cabeça. Aquele clarão vermelho... o terremoto...
+[clear time="1.0" step="false" portraits="false" music="false" background="false" positions="false" style="false"]
+update player (dante)
+[wait time="1.0"]
+update player (dante4)
+[wait time="1.0"]
+update player (dante)
+[wait time="1.0"]
+update player (dante2)
+A gente sobreviveu? Mestre?
+[clear time="1.0" step="false" portraits="false" music="false" background="false" positions="false" style="false"]
+[signal arg="virgilio_aparece"]
+update player (dante)
+[wait time="3.0"]
+update player (dante2)
+Virgílio! Você tá aí. Ufa... Achei que tinha te perdido na travessia do rio.
+update player (dante3)
+Espera... você tá branco igual papel. Se você, que é meu guia, tá com medo... eu tô ferrado.
+update player (dante)
+join virgilio leftmost
+Não é medo, Dante. É piedade. Angústia.
+update player (dante2)
+Angústia? Por que?
+update player (dante)
+Porque chegamos. Este é o Primeiro Círculo. O Limbo.
+É aqui que eu moro. É aqui que ficam as almas boas que não tiveram a luz da fé.
+update player (dante2)
+Caramba... Então seus amigos estão todos aqui?
+update player (dante)
+Estão. Os maiores sábios, poetas e heróis que o mundo já viu. E é por isso que precisamos ir ao Castelo.
+update player (dante3)
+O Castelo? Aquele ali na frente?
+update player (dante)
+Sim. O Castelo dos Filósofos. A saída para o segundo círculo está bloqueada por Minós, e não vamos passar por ele na força bruta.
+Precisamos do conhecimento dos Sábios. Vamos, Dante. Não podemos parar, o caminho é longo.

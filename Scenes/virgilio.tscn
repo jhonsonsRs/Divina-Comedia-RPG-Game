@@ -1,10 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://bkta55idc8bq3"]
+[gd_scene load_steps=46 format=3 uid="uid://bkta55idc8bq3"]
 
 [ext_resource type="Script" uid="uid://b734ei6nxwtiq" path="res://Scripts/Virgilio/virgilio.gd" id="1_id3av"]
 [ext_resource type="Texture2D" uid="uid://b4kiiem0yw8ea" path="res://Assets/Player/LiaAsset6.png" id="2_iup81"]
 [ext_resource type="Script" uid="uid://dry2u1w5quwtj" path="res://Scripts/Virgilio/StateMachineVirgilio.gd" id="3_id3av"]
 [ext_resource type="Script" uid="uid://y1ysj0yjlhtr" path="res://Scripts/Virgilio/Virgilio_Idle.gd" id="4_mmn4h"]
 [ext_resource type="Script" uid="uid://c1mmeywphr0s" path="res://Scripts/Virgilio/Virgilio_Follow.gd" id="5_ogsuc"]
+[ext_resource type="Texture2D" uid="uid://u6s5hscdwkjl" path="res://Assets/E-key.png" id="6_ogsuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogsuc"]
 size = Vector2(14, 9.75)
@@ -809,7 +810,11 @@ states/idle/position = Vector2(373, 70)
 states/run/node = SubResource("AnimationNodeBlendSpace2D_rgmdi")
 states/run/position = Vector2(373, 190)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mmn4h"]
+radius = 85.0059
+
 [node name="Virgilio" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Virgilio"]]
+motion_mode = 1
 script = ExtResource("1_id3av")
 animation_tree = NodePath("AnimationTree")
 
@@ -846,3 +851,17 @@ virgilio = NodePath("../..")
 [node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("virgilio")]
 script = ExtResource("5_ogsuc")
 virgilio = NodePath("../..")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_mmn4h")
+
+[node name="InteractionIcon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -23)
+scale = Vector2(0.34375, 0.362069)
+texture = ExtResource("6_ogsuc")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

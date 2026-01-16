@@ -15,7 +15,7 @@ func enter():
 	else:
 		_flash_fast()
 		await get_tree().create_timer(0.5).timeout
-	enemy.queue_free()
+	enemy._die()
 
 func _physics_process(delta):
 	enemy.velocity = enemy.velocity.lerp(Vector2.ZERO, enemy.friction)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://dsunlaawjwjiu"]
 
-[ext_resource type="Script" uid="uid://ddqtgkdanniol" path="res://Scripts/Enemys/Teste/BosqueDasSombras.gd" id="1_roc7h"]
+[ext_resource type="Script" uid="uid://ddqtgkdanniol" path="res://Scripts/BosqueDasSombras.gd" id="1_roc7h"]
 [ext_resource type="Texture2D" uid="uid://bbhfsi4343vol" path="res://Assets/Levels/teste3.png" id="2_j1pje"]
 [ext_resource type="Texture2D" uid="uid://b4j7qvt2xs7lf" path="res://Assets/Levels/yarntown.tiles.png" id="3_8hrsn"]
 [ext_resource type="Script" uid="uid://bgwgxcq6wddh3" path="res://Scripts/Portal.gd" id="5_oe6uo"]
@@ -269,7 +269,7 @@ position = Vector2(131, 175)
 position = Vector2(836, 173)
 
 [node name="VirgilioSpawn" type="Marker2D" parent="Spawns"]
-position = Vector2(101, 230)
+position = Vector2(539, 174)
 
 [node name="Portais" type="Node2D" parent="."]
 
@@ -277,6 +277,7 @@ position = Vector2(101, 230)
 script = ExtResource("5_oe6uo")
 target_map_name = "BosqueDasSombras2"
 target_spawn_name = "SpawnTutorial"
+target_spawn_virgilio_name = "VirgilioSpawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portais/Area2D"]
 position = Vector2(872, 172)
@@ -286,3 +287,6 @@ shape = SubResource("RectangleShape2D_c8xco")
 
 [node name="limit_br" type="Marker2D" parent="."]
 position = Vector2(896, 416)
+
+[node name="destino_virgilio" type="Marker2D" parent="."]
+position = Vector2(195, 176)

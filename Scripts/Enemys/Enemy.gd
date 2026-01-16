@@ -31,6 +31,9 @@ func _ready() -> void:
 	detection_area.body_exited.connect(_on_area_2d_body_exited)
 
 func _physics_process(delta: float) -> void:
+	if GameState.game_paused:
+		velocity = Vector2.ZERO
+		return
 	if state_machine.current_state.has_method("_physics_process"):
 		state_machine.current_state._physics_process(delta)
 		return
@@ -81,7 +84,11 @@ func _on_hit_received(hitbox: Hitbox):
 		state_machine.change_state(state_machine.get_node("Hurt"))
 	
 func _die():
+	var game = get_node("/root/Mundo")
+	if game:
+		game.on_enemy_destroyed(self)
 	queue_free()
+	
 
 func _on_area_2d_body_entered(body: Node2D):
 	if body.is_in_group("Player"):

@@ -4,15 +4,19 @@ class_name Player
 
 # Variáveis de Movimento
 var move_speed : float = 140.0
+var normal_speed : float = 140.0
 var acceleration : float = 0.4
 var friction : float = 0.8
 var last_direction: Vector2 = Vector2(0, 1) # Começa olhando para baixo
 var health : int = 100
+@onready var camera := $Camera2D
 
 # Exports
 @export var animation_tree : AnimationTree = null
 
 # Onreadys
+@onready var particles = $GPUParticles2D 
+@onready var sprite = $Sprite2D
 @onready var state_machine = $FiniteStateMachine
 @onready var hurtbox : Hurtbox = $Hurtbox
 @onready var attack1 = $AttackSound1
@@ -23,8 +27,12 @@ var combo_step: int = 0
 func _ready() -> void:
 	animation_tree.active = true
 	hurtbox.hit_received.connect(_on_hit_received)
+	normal_speed = move_speed
 
 func _physics_process(_delta: float) -> void:
+	if GameState.game_paused:
+		velocity = Vector2.ZERO
+		return
 	_move() #calcula a velocidade com base no estado
 	move_and_slide() #aplica a velocidade e colide
 	attack() #verifica se o jogador quer atacar
@@ -82,3 +90,14 @@ func _on_hit_received(hitbox: Hitbox):
 	print("tomei dano po {dano_recebido}")
 	health -= dano_recebido
 	#quando adicionar: state_machine.change_state("Hurt")
+
+func toggle_teleport_fx(ativar: bool):
+	if ativar:
+		particles.emitting = true
+		var tween = create_tween()
+		tween.tween_property(sprite, "modulate", Color(3, 3, 3, 1), 1.5)
+	else:
+		particles.emitting = false
+		var tween = create_tween()
+		tween.tween_property(sprite, "modulate", Color.WHITE, 1.0)
+		

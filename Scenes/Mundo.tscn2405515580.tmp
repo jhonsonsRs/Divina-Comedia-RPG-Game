@@ -1,0 +1,258 @@
+[gd_scene load_steps=18 format=3 uid="uid://c47fojdgpsgij"]
+
+[ext_resource type="Script" uid="uid://crxrn6h6pro10" path="res://Scripts/GameManager.gd" id="1_jvpnq"]
+[ext_resource type="PackedScene" uid="uid://bxaycuxxvqqeb" path="res://Scenes/Player.tscn" id="2_s44lv"]
+[ext_resource type="PackedScene" uid="uid://bkta55idc8bq3" path="res://Scenes/virgilio.tscn" id="2_v2lyq"]
+[ext_resource type="Script" uid="uid://y8ucxonci5lf" path="res://Scenes/ui.gd" id="3_o2bb6"]
+[ext_resource type="Texture2D" uid="uid://c6qyu8kujhhhi" path="res://Scripts/quest_display.png" id="3_yag4v"]
+[ext_resource type="FontFile" uid="uid://r1wvargstfga" path="res://Scripts/CompassPro.ttf" id="4_o2bb6"]
+[ext_resource type="AudioStream" uid="uid://nw1jc5hsagyt" path="res://Assets/trovao1.mp3" id="7_2hhwh"]
+[ext_resource type="Script" uid="uid://3i3q5ut8fjkm" path="res://Scripts/Cutscenes/CutscenePlayer.gd" id="7_xk7c1"]
+[ext_resource type="AudioStream" uid="uid://ymdr562nq2ec" path="res://Assets/trovao2.mp3" id="8_xk7c1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dq4oj"]
+texture = ExtResource("3_yag4v")
+
+[sub_resource type="Animation" id="Animation_o2bb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yag4v"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v2lyq"]
+resource_name = "fade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dq4oj"]
+_data = {
+&"RESET": SubResource("Animation_o2bb6"),
+&"fade_in": SubResource("Animation_yag4v"),
+&"fade_out": SubResource("Animation_v2lyq")
+}
+
+[sub_resource type="Animation" id="Animation_pu0vx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneLayer/TelaPreta:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundTrovao1:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundTrovao2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cmwhr"]
+resource_name = "intro_sequence"
+length = 21.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneLayer/TelaPreta:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 17.6667, 19.0667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundTrovao1:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 7.524),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundTrovao2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.8959, 17.213),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(21),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"iniciar_dialogo_intro"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8oxd"]
+_data = {
+&"RESET": SubResource("Animation_pu0vx"),
+&"intro_sequence": SubResource("Animation_cmwhr")
+}
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource("1_jvpnq")
+
+[node name="LevelContainer" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_s44lv")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_o2bb6")
+
+[node name="QuestDisplay" type="Panel" parent="UI"]
+offset_left = 406.0
+offset_right = 512.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dq4oj")
+
+[node name="QuestLabel" type="Label" parent="UI/QuestDisplay"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 102.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("4_o2bb6")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="UI/QuestDisplay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -12.0
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 11.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_o2bb6")
+theme_override_font_sizes/font_size = 8
+text = "QUESTS"
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_dq4oj")
+}
+
+[node name="Virgilio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_v2lyq")]
+position = Vector2(54, 34)
+player = NodePath("../Player")
+
+[node name="CutscenePlayer" type="Node" parent="."]
+script = ExtResource("7_xk7c1")
+
+[node name="CutsceneLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="TelaPreta" type="ColorRect" parent="CutsceneLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SoundTrovao1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2hhwh")
+
+[node name="SoundTrovao2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xk7c1")
+
+[node name="IntroAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w8oxd")
+}

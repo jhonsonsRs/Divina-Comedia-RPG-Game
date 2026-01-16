@@ -1,0 +1,19 @@
+join homero (homero2) leftmost
+join player (dante) rightmost
+Ah... um peito que ainda arfa no reino dos suspiros? Aproxime-se, viajante.
+Meus olhos já não veem a luz do sol, mas reconheço o peso de passos vivos. Eu sou Homero.
+Em vida, minha voz foi espada e escudo. Cantei a ira de Aquiles e a astúcia de Ulisses. Fiz homens se tornarem imortais através dos versos.
+update homero (homero1)
+[wait time="2.0"]
+update homero (homero2)
+Mas este lugar... o Limbo é silencioso, Dante. O silêncio aqui é uma traça que devora a glória.
+Minha Ilíada foi fragmentada. As memórias dos meus heróis foram espalhadas pelo vento cinzento e suas estátuas estão mudas.
+Sem seus versos, eles não são nada além de pedra fria.
+update homero (homero1)
+join player (dante2) rightmost
+O que posso fazer, Poeta?
+update player (dante)
+update homero (homero2)
+Se tens a coragem que falta às sombras, busque os Fragmentos Perdidos neste jardim.
+Traga os feitos de Heitor, a fúria de Aquiles e a viagem de Ulisses de volta aos seus pedestais.
+Faça a pedra lembrar-se de quem foi carne e sangue.

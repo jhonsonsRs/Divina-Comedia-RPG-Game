@@ -2,6 +2,8 @@ extends Area2D
 
 @export var target_map_name : String 
 @export var target_spawn_name : String
+@export var target_spawn_virgilio_name : String
+@export var quest_necessaria : String
 
 var game_manager = null
 
@@ -13,5 +15,8 @@ func _ready() -> void:
 
 func _on_body_entered(_body):
 	if _body.is_in_group("Player"):
+		if quest_necessaria != "":
+			if GameState.is_quest_complete(quest_necessaria) == false:
+				return
 		set_deferred("monitoring", false)
-		game_manager.call_deferred("trocar_mapa", target_map_name, target_spawn_name)
+		game_manager.call_deferred("trocar_mapa", target_map_name, target_spawn_name, target_spawn_virgilio_name)

@@ -1,0 +1,67 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "dante",
+&"description": "",
+&"display_name": "Dante",
+&"mirror": false,
+&"nicknames": ["Dante"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"dante": {
+"export_overrides": {
+"image": "\"res://Assets/Portraits/player_portrait.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"dante2": {
+"export_overrides": {
+"image": "\"res://Assets/Portraits/player_portrait2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"dante3": {
+"export_overrides": {
+"image": "\"res://Assets/Portraits/player_portrait3.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"dante4": {
+"export_overrides": {
+"image": "\"res://Assets/Portraits/player_portrait4.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"dante5": {
+"export_overrides": {
+"image": "\"res://Assets/Portraits/player_portrait5.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 0.5
+}

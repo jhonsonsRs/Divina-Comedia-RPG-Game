@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgsnvghx7m1s4"]
+
+[ext_resource type="Script" uid="uid://ca6clhtx224cx" path="res://Scripts/homero.gd" id="1_7e574"]
+[ext_resource type="Texture2D" uid="uid://cf2so5lw6aadg" path="res://Assets/npc.png" id="1_fw4b2"]
+[ext_resource type="Texture2D" uid="uid://u6s5hscdwkjl" path="res://Assets/E-key.png" id="3_3lbry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e574"]
+size = Vector2(13, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lbry"]
+radius = 65.0
+
+[node name="Homero" type="StaticBody2D"]
+script = ExtResource("1_7e574")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fw4b2")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 14.5)
+shape = SubResource("RectangleShape2D_7e574")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3lbry")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -29)
+scale = Vector2(0.3125, 0.362069)
+texture = ExtResource("3_3lbry")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

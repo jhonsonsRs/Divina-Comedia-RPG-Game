@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://bxaycuxxvqqeb"]
+[gd_scene load_steps=115 format=3 uid="uid://bxaycuxxvqqeb"]
 
 [ext_resource type="Script" uid="uid://cav0hby3nscbw" path="res://Scripts/Player/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://c7mf3msry4vkc" path="res://Assets/Player/ShizukaAsset3.png" id="2_kyqiw"]
@@ -4109,8 +4109,23 @@ size = Vector2(13, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_megsn"]
 size = Vector2(7.5, 10)
 
+[sub_resource type="Gradient" id="Gradient_ksbbd"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_glx4g"]
+gradient = SubResource("Gradient_ksbbd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_miouo"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+color_ramp = SubResource("GradientTexture1D_glx4g")
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Player"]]
 y_sort_enabled = true
+motion_mode = 1
 script = ExtResource("1_kyqiw")
 animation_tree = NodePath("AnimationTree")
 
@@ -4207,5 +4222,11 @@ disabled = true
 
 [node name="AttackSound1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ksbbd")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_miouo")
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

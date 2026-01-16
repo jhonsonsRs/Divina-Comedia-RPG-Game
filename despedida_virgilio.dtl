@@ -1,0 +1,22 @@
+join virgilio leftmost
+Pare, meu filho. Erga os olhos. Vê como a escuridão recua diante daquelas muralhas? Este é o Castelo Dos Filósofos.
+join player (dante2) rightmost
+Uma luz dourada... no meio do abismo? Como isso é possível, Mestre?
+update player (dante)
+Não é a luz divina, Dante. É a luz do intelecto humano.
+A chama da Razão que brilha por mérito próprio, vencendo a treva da ignorância, mas... sem a esperança da salvação.
+[wait time="2.0"]
+Aqui residem meus irmãos. Os grandes poetas, os heróis de Troia, os mestres do pensamento. É aqui que minha alma habita quando não estou guiando teus passos.
+update player (dante2)
+Então entraremos em terreno seguro. Vamos, Mestre.
+update player (dante)
+Não, Dante. Daqui em diante, teus passos devem ser solitários.
+update player (dante2)
+Como? Você prometeu me guiar até Beatriz!
+update player (dante)
+E guiarei. Mas dentro destes sete muros, minha voz não pode ser tua muleta.
+Para enfrentar o que vem depois — os círculos da Luxúria, da Gula, da Ira — tua mente precisa estar afiada como aço.
+Tu deves provar tua própria virtude diante dos Sete Sábios. Conquiste as chaves da razão por mérito teu.
+[wait time="2.0"]
+Vá. Encare os mestres antigos. Eu aguardarei tua chegada aqui no mesmo lugar.
+Não tenhas medo. A mente é a única arma que este lugar não pode quebrar.
