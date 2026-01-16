@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://8wk5pvqk1sq0"]
+
+[ext_resource type="Script" uid="uid://bqo5re3d14usi" path="res://Scripts/estatua_heroi.gd" id="1_fu1kn"]
+[ext_resource type="Texture2D" uid="uid://hmn61lo520gd" path="res://Assets/Levels/ValeDosHerois/EstatuaSombra.png" id="2_axbgs"]
+[ext_resource type="Texture2D" uid="uid://dyvdqt2dort5j" path="res://Assets/Levels/ValeDosHerois/Estatua.png" id="3_hsdhs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2kc"]
+size = Vector2(37, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_taae8"]
+radius = 70.0071
+
+[node name="EstatuaHeroi" type="StaticBody2D"]
+script = ExtResource("1_fu1kn")
+
+[node name="sombra" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+texture = ExtResource("2_axbgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("3_hsdhs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 17.5)
+shape = SubResource("RectangleShape2D_bk2kc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_taae8")

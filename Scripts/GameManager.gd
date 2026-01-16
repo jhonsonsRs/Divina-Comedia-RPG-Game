@@ -8,6 +8,7 @@ const MAPS := {
 	"ValeDosHerois" = preload("res://vale_dos_herois.tscn")
 }
 
+@onready var menu_verso = $UI/MenuEscolhaVerso
 @onready var player: CharacterBody2D = $Player
 @onready var virgilio : CharacterBody2D = $Virgilio
 @onready var level_container: Node = $LevelContainer
@@ -154,6 +155,10 @@ func on_zone_entered(zone_id: String) -> void:
 func on_enemy_destroyed(enemy) -> void:
 	if QuestManager.current_quest and QuestManager.current_quest.has_method("on_enemy_destroyed"):
 		QuestManager.current_quest.on_enemy_destroyed(enemy)
+
+func on_quest_event(event_id : String):
+	if QuestManager.current_quest and QuestManager.current_quest.has_method("on_quest_event"):
+		QuestManager.current_quest.on_quest_event(event_id)
 
 func iniciar_cutscene_intro():
 	cutscene_player.actions.clear()

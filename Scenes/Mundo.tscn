@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c47fojdgpsgij"]
+[gd_scene load_steps=19 format=3 uid="uid://c47fojdgpsgij"]
 
 [ext_resource type="Script" uid="uid://crxrn6h6pro10" path="res://Scripts/GameManager.gd" id="1_jvpnq"]
 [ext_resource type="PackedScene" uid="uid://bxaycuxxvqqeb" path="res://Scenes/Player.tscn" id="2_s44lv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://y8ucxonci5lf" path="res://Scripts/ui.gd" id="3_o2bb6"]
 [ext_resource type="Texture2D" uid="uid://c6qyu8kujhhhi" path="res://Assets/quest_display.png" id="3_yag4v"]
 [ext_resource type="FontFile" uid="uid://r1wvargstfga" path="res://Assets/Fonts/CompassPro.ttf" id="4_o2bb6"]
+[ext_resource type="PackedScene" uid="uid://dpk2av742opat" path="res://Scenes/menu_escolha_verso.tscn" id="6_cmwhr"]
 [ext_resource type="AudioStream" uid="uid://nw1jc5hsagyt" path="res://Assets/Sounds/trovao1.mp3" id="7_2hhwh"]
 [ext_resource type="Script" uid="uid://3i3q5ut8fjkm" path="res://Scripts/Cutscenes/CutscenePlayer.gd" id="7_xk7c1"]
 [ext_resource type="AudioStream" uid="uid://ymdr562nq2ec" path="res://Assets/Sounds/trovao2.mp3" id="8_xk7c1"]
@@ -245,6 +246,8 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_o2bb6")
 theme_override_font_sizes/font_size = 8
 text = "QUESTS"
+
+[node name="MenuEscolhaVerso" parent="UI" instance=ExtResource("6_cmwhr")]
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 

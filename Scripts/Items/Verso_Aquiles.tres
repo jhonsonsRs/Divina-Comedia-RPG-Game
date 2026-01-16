@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://bj3v6qsxotagb"]
+
+[ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_ihnd4"]
+
+[resource]
+script = ExtResource("1_ihnd4")
+id = "verso_aquiles"
+nome = "Verso de Aquiles"
+descricao = "Canta, ó deusa, a cólera de Aquiles..."
+tipo = "verso"
+cor = Color(0.615686, 0, 0, 1)
+metadata/_custom_type_script = "uid://sn72ygx3yt3k"

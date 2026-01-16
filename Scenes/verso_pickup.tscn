@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://r2l4p1uhf6"]
+
+[ext_resource type="Script" uid="uid://bbcohhb815ed3" path="res://Scripts/Items/verso_pickup.gd" id="1_f3ijw"]
+[ext_resource type="Texture2D" uid="uid://g3vg26vm13y4" path="res://Assets/Levels/ValeDosHerois/Verso.png" id="2_5p7ld"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtq7e"]
+radius = 59.0
+
+[node name="VersoPickup" type="Area2D"]
+script = ExtResource("1_f3ijw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5p7ld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rtq7e")

@@ -2,6 +2,8 @@ extends Node
 
 var game_paused := false
 
+var inventory : Array[ItemData] = []
+
 var quest_completion := {
 	"caminhe_com_virgilio": false,
 	"batalha_tutorial" : false,
@@ -27,3 +29,19 @@ func is_quest_complete(id:String)-> bool:
 	
 func mark_quest_complete(id:String)-> void:
 	quest_completion[id] = true
+	
+func add_item(item : ItemData):
+	inventory.append(item)
+
+func remove_item(item_id : String):
+	for i in inventory:
+		if i.id == item_id:
+			inventory.erase(i)
+			return
+
+func get_items_by_type(tipo : String) -> Array:
+	var result := []
+	for item in inventory:
+		if item.tipo == tipo:
+			result.append(item)
+	return result
