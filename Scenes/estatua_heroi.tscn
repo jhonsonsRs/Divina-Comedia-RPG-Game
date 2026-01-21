@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://8wk5pvqk1sq0"]
+[gd_scene load_steps=11 format=3 uid="uid://8wk5pvqk1sq0"]
 
 [ext_resource type="Script" uid="uid://bqo5re3d14usi" path="res://Scripts/estatua_heroi.gd" id="1_fu1kn"]
 [ext_resource type="Texture2D" uid="uid://hmn61lo520gd" path="res://Assets/Levels/ValeDosHerois/EstatuaSombra.png" id="2_axbgs"]
@@ -9,6 +9,33 @@ size = Vector2(37, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_taae8"]
 radius = 70.0071
+
+[sub_resource type="Gradient" id="Gradient_fu1kn"]
+colors = PackedColorArray(1, 0.827451, 0.415686, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_axbgs"]
+gradient = SubResource("Gradient_fu1kn")
+
+[sub_resource type="Curve" id="Curve_hsdhs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bk2kc"]
+curve = SubResource("Curve_hsdhs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_taae8"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.3
+scale_curve = SubResource("CurveTexture_bk2kc")
+color = Color(1, 0.827451, 0.415686, 1)
+color_ramp = SubResource("GradientTexture1D_axbgs")
 
 [node name="EstatuaHeroi" type="StaticBody2D"]
 script = ExtResource("1_fu1kn")
@@ -29,3 +56,10 @@ shape = SubResource("RectangleShape2D_bk2kc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_taae8")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 60
+lifetime = 1.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_taae8")

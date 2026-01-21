@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if GameState.game_paused:
 		velocity = Vector2.ZERO
 		return
-	if state_machine.current_state.has_method("_physics_process"):
+	if state_machine.current_state != null and state_machine.current_state.has_method("_physics_process"):
 		state_machine.current_state._physics_process(delta)
 		return
 	_calculate_movement()
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	_check_attack()
 
 func _calculate_movement():
-	if state_machine.current_state.name.begins_with("Attack"):
+	if state_machine.current_state != null and state_machine.current_state.name.begins_with("Attack"):
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 		return
 	var target_velocity = Vector2.ZERO

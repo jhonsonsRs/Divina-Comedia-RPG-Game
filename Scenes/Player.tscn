@@ -4230,3 +4230,4 @@ lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_miouo")
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="hit_received" from="Hurtbox" to="." method="_on_hurtbox_hit_received"]

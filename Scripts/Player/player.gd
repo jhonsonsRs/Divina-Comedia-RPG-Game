@@ -9,10 +9,14 @@ var acceleration : float = 0.4
 var friction : float = 0.8
 var last_direction: Vector2 = Vector2(0, 1) # Começa olhando para baixo
 var health : int = 100
+var is_invincible: bool = false
+var is_hurt : bool = false
 @onready var camera := $Camera2D
 
 # Exports
 @export var animation_tree : AnimationTree = null
+@export var knockback_force : float = 200.0
+@export var invincibility_time : float = 1.0
 
 # Onreadys
 @onready var particles = $GPUParticles2D 
@@ -26,12 +30,15 @@ var combo_step: int = 0
 
 func _ready() -> void:
 	animation_tree.active = true
-	hurtbox.hit_received.connect(_on_hit_received)
 	normal_speed = move_speed
 
 func _physics_process(_delta: float) -> void:
 	if GameState.game_paused:
 		velocity = Vector2.ZERO
+		return
+	if is_hurt:
+		move_and_slide()
+		velocity = velocity.lerp(Vector2.ZERO, 0.1)
 		return
 	_move() #calcula a velocidade com base no estado
 	move_and_slide() #aplica a velocidade e colide
@@ -85,12 +92,41 @@ func attack():
 			# Chama a função no estado de ataque atual para ele verificar o timing
 			state_machine.current_state.register_attack_press()
 
-func _on_hit_received(hitbox: Hitbox):
-	var dano_recebido = hitbox.damage
-	print("tomei dano po {dano_recebido}")
-	health -= dano_recebido
-	#quando adicionar: state_machine.change_state("Hurt")
 
+func aplicar_knockback(direcao: Vector2):
+	is_hurt = true
+	velocity = direcao * knockback_force
+	await get_tree().create_timer(0.2).timeout
+	is_hurt = false 
+
+func start_invincibility():
+	is_invincible = true
+	var tween = create_tween()
+	tween.set_loops(10) 
+	tween.tween_property(sprite, "modulate:a", 0.2, 0.1) 
+	tween.tween_property(sprite, "modulate:a", 1.0, 0.1)
+	await get_tree().create_timer(invincibility_time).timeout
+	sprite.modulate.a = 1.0 
+	is_invincible = false
+
+func camera_shake():
+	if not camera: return
+	var forca_inicial: float = 4.0  
+	var duracao_total: float = 0.4 
+	var passos: int = 20
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	var tempo_por_passo = duracao_total / float(passos)
+
+	for i in range(passos):
+		var progresso_decay = 1.0 - (float(i) / float(passos))
+		var forca_atual = forca_inicial * progresso_decay
+		var offset_x = randf_range(-forca_atual, forca_atual)
+		var offset_y = randf_range(-forca_atual, forca_atual)
+		tween.tween_property(camera, "offset", Vector2(offset_x, offset_y), tempo_por_passo)
+	tween.tween_property(camera, "offset", Vector2.ZERO, 0.1).set_trans(Tween.TRANS_LINEAR)
+	
 func toggle_teleport_fx(ativar: bool):
 	if ativar:
 		particles.emitting = true
@@ -101,3 +137,25 @@ func toggle_teleport_fx(ativar: bool):
 		var tween = create_tween()
 		tween.tween_property(sprite, "modulate", Color.WHITE, 1.0)
 		
+
+
+func _on_hurtbox_hit_received(hitbox: Area2D) -> void:
+	if is_invincible:
+		return
+	var dano_recebido = hitbox.damage
+	health -= dano_recebido
+	print("Tomei dano: ", dano_recebido, " | Vida restante: ", health)
+	
+	if health <= 0:
+		pass
+		#GameState.game_over()
+	var enemy_pos = Vector2.ZERO
+	if hitbox.owner:
+		enemy_pos = hitbox.owner.global_position
+	else:
+		enemy_pos = hitbox.global_position
+	
+	var direcao_empurrao = (global_position - enemy_pos).normalized()
+	aplicar_knockback(direcao_empurrao)
+	camera_shake()
+	start_invincibility()

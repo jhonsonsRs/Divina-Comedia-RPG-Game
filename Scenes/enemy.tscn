@@ -1,9 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://cmnw3b60tdk45"]
+[gd_scene load_steps=50 format=3 uid="uid://cmnw3b60tdk45"]
 
 [ext_resource type="Script" uid="uid://ch5e4gf8dlr4v" path="res://Scripts/Enemys/Enemy.gd" id="1_8uf12"]
 [ext_resource type="Texture2D" uid="uid://cp5chmcxq1e8m" path="res://Assets/Enemy/octopus2.png" id="2_po0sg"]
 [ext_resource type="Script" uid="uid://4riaewguc7dr" path="res://Scripts/Hitboxes/Hurtbox.gd" id="3_haro7"]
 [ext_resource type="Script" uid="uid://bumgww6r3hmk" path="res://Scripts/Enemys/EnemyStateMachine.gd" id="4_56vhr"]
+[ext_resource type="Script" uid="uid://bbnj3fhjecsy6" path="res://Scripts/Hitboxes/Hitbox.gd" id="4_po0sg"]
 [ext_resource type="Script" uid="uid://bjeer7flj3535" path="res://Scripts/Enemys/EnemyIdle.gd" id="5_ta2yt"]
 [ext_resource type="Script" uid="uid://vedj37bc6btt" path="res://Scripts/Enemys/EnemyRun.gd" id="6_m4x7e"]
 [ext_resource type="Script" uid="uid://bkbnecn73urlc" path="res://Scripts/Enemys/EnemyAttack.gd" id="7_vt4ob"]
@@ -961,6 +962,10 @@ position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_epg4t")
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_po0sg")
+damage = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1, 20.75)

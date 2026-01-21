@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://efyatu3duudc"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://efyatu3duudc"]
 
+[ext_resource type="Texture2D" uid="uid://g3vg26vm13y4" path="res://Assets/Levels/ValeDosHerois/Verso.png" id="1_6bunx"]
 [ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_o6ll1"]
 
 [resource]
 script = ExtResource("1_o6ll1")
 id = "verso_ulisses"
-nome = "Verso de Ulisses"
-descricao = "Um papiro que parece cheirar a mar e sal. Nele, Homero invoca a Musa para falar do 'homem de mil estratagemas'. Aquele que enganou Ciclopes e desafiou deuses apenas com o poder do intelecto."
+nome = "Verso 2"
+descricao = "\"Onde a força bruta falhou por dez anos, sua mente venceu em uma noite. O arquiteto do Cavalo de Madeira que derrubou a cidade inexpugnável.\""
 tipo = "verso"
 cor = Color(0, 0, 0.713726, 1)
+icon = ExtResource("1_6bunx")
+utilizavel = false
 metadata/_custom_type_script = "uid://sn72ygx3yt3k"

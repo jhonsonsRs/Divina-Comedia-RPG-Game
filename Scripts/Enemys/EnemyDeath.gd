@@ -1,6 +1,8 @@
 extends EnemyState
 
 func enter():
+	if enemy == null:
+		return
 	enemy.velocity = enemy.knockback_vector
 	enemy.hurtbox.set_deferred("monitorable", false)
 	enemy.set_collision_layer_value(1, false) 
@@ -18,6 +20,8 @@ func enter():
 	enemy._die()
 
 func _physics_process(delta):
+	if enemy == null:
+		return
 	enemy.velocity = enemy.velocity.lerp(Vector2.ZERO, enemy.friction)
 	enemy.move_and_slide()
 

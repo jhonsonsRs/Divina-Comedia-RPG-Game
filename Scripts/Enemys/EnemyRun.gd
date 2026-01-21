@@ -1,6 +1,8 @@
 extends EnemyState
 
 func enter():
+	if enemy == null:
+		return
 	enemy.animation_tree["parameters/playback"].travel("run")
 
 func update(_delta):

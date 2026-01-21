@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://c4r321hjrps6o"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c4r321hjrps6o"]
 
+[ext_resource type="Texture2D" uid="uid://g3vg26vm13y4" path="res://Assets/Levels/ValeDosHerois/Verso.png" id="1_0y01c"]
 [ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_dp52y"]
 
 [resource]
 script = ExtResource("1_dp52y")
 id = "verso_heitor"
-nome = "Verso de Heitor"
-descricao = "Versos pesados de melancolia. Eles narram o adeus do Domador de Cavalos à sua família antes do duelo final. A lembrança do príncipe que encarou a morte certa com a dignidade que falta aos deuses."
+nome = "Verso 3"
+descricao = "\"O verdadeiro Escudo de Troia. Enquanto ele viveu, as muralhas resistiram. Lutou e morreu não por ódio, mas para proteger seu lar.\""
 tipo = "verso"
 cor = Color(0, 0.5314, 0, 1)
+icon = ExtResource("1_0y01c")
+utilizavel = false
 metadata/_custom_type_script = "uid://sn72ygx3yt3k"

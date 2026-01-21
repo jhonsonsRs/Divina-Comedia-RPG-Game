@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cvegckqb8y0h6"]
+
+[ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_jg85o"]
+[ext_resource type="Texture2D" uid="uid://3vne6tdttsfu" path="res://Assets/key_icon.png" id="1_kehh6"]
+
+[resource]
+script = ExtResource("1_jg85o")
+id = "key_homero"
+nome = "Chave de Homero"
+descricao = "Chave para o portão final"
+tipo = "chave"
+cor = Color(0, 0, 0, 1)
+icon = ExtResource("1_kehh6")
+utilizavel = false
+metadata/_custom_type_script = "uid://sn72ygx3yt3k"

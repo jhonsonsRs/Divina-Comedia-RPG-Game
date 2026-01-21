@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://brdsjnsxjebx4"]
+
+[ext_resource type="Script" uid="uid://ch0jgwaq714ok" path="res://Scripts/chave_homero.gd" id="1_33x27"]
+[ext_resource type="Texture2D" uid="uid://dn23cotjr5d4f" path="res://Assets/key.png" id="1_msw3g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33x27"]
+radius = 46.0109
+
+[sub_resource type="Gradient" id="Gradient_yjgi1"]
+colors = PackedColorArray(1, 0.827451, 0.415686, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_axbgs"]
+gradient = SubResource("Gradient_yjgi1")
+
+[sub_resource type="Curve" id="Curve_k86jw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bk2kc"]
+curve = SubResource("Curve_k86jw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o88yg"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.3
+scale_curve = SubResource("CurveTexture_bk2kc")
+color = Color(1, 0.827451, 0.415686, 1)
+color_ramp = SubResource("GradientTexture1D_axbgs")
+
+[node name="chave_homero" type="Area2D"]
+script = ExtResource("1_33x27")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_msw3g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_33x27")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 40
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_o88yg")

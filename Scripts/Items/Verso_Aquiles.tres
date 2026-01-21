@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://bj3v6qsxotagb"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bj3v6qsxotagb"]
 
+[ext_resource type="Texture2D" uid="uid://g3vg26vm13y4" path="res://Assets/Levels/ValeDosHerois/Verso.png" id="1_8yiya"]
 [ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_ihnd4"]
 
 [resource]
 script = ExtResource("1_ihnd4")
 id = "verso_aquiles"
-nome = "Verso de Aquiles"
-descricao = "Canta, ó deusa, a cólera de Aquiles..."
+nome = "Verso 1"
+descricao = "\"Escolheu a glória breve em vez da vida longa. Sua ira fez exércitos tremerem, e apenas uma flecha em seu calcanhar pôde derrubá-lo.\""
 tipo = "verso"
 cor = Color(0.615686, 0, 0, 1)
+icon = ExtResource("1_8yiya")
+utilizavel = false
 metadata/_custom_type_script = "uid://sn72ygx3yt3k"

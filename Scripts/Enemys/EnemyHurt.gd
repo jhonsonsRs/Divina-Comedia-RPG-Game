@@ -1,6 +1,8 @@
 extends EnemyState
 
 func enter():
+	if enemy == null:
+		return
 	enemy.velocity = enemy.knockback_vector
 	var animation_root = enemy.animation_tree.tree_root
 	if animation_root.has_node("hurt"):
@@ -13,6 +15,8 @@ func enter():
 		enemy.state_machine.change_state(enemy.state_machine.get_node("Idle"))
 
 func _physics_process(delta):
+	if enemy == null:
+		return
 	# Aplica fricção forte para ele deslizar com o knockback e parar
 	enemy.velocity = enemy.velocity.lerp(Vector2.ZERO, enemy.friction)
 	enemy.move_and_slide()

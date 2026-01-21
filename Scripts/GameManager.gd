@@ -5,9 +5,11 @@ const MAPS := {
 	"BosqueDasSombras3" = preload("res://Scenes/Levels/BosqueDasSombras3.tscn"),
 	"CasteloMapa" = preload("res://Scenes/Levels/CasteloMapa.tscn"),
 	"castelo_nivel1" = preload("res://Scenes/castelo_nivel1.tscn"),
-	"ValeDosHerois" = preload("res://vale_dos_herois.tscn")
+	"ValeDosHerois" = preload("res://vale_dos_herois.tscn"),
+	"TemploGregoHomero" = preload("res://Scenes/Levels/templo_grego_homero.tscn")
 }
 
+@onready var inventario = $UI/inventario
 @onready var menu_verso = $UI/MenuEscolhaVerso
 @onready var player: CharacterBody2D = $Player
 @onready var virgilio : CharacterBody2D = $Virgilio
@@ -38,6 +40,10 @@ func _ready() -> void:
 			update_quest_ui(QuestManager.current_quest.objective_text)
 		else:
 			update_quest_ui("")
+
+func _process(_delta):
+	if Input.is_action_just_pressed("inventario"):
+		inventario.toggle()
 
 func configurar_teste_castelo():
 	print("--- INICIANDO EM MODO DE TESTE: CASTELO ---")
@@ -151,6 +157,10 @@ func update_quest_ui(objective_text: String)-> void:
 func on_zone_entered(zone_id: String) -> void:
 	if QuestManager.current_quest and QuestManager.current_quest.has_method("on_zone_entered"):
 		QuestManager.current_quest.on_zone_entered(zone_id)
+
+func on_item_collected(_item_id : String) -> void:
+	if QuestManager.current_quest and QuestManager.current_quest.has_method("on_item_collected"):
+		QuestManager.current_quest.on_item_collected(_item_id)
 
 func on_enemy_destroyed(enemy) -> void:
 	if QuestManager.current_quest and QuestManager.current_quest.has_method("on_enemy_destroyed"):
@@ -317,3 +327,15 @@ func teleportar_dimensional(novo_mapa: String, novo_spawn: String):
 	
 	await get_tree().create_timer(0.5).timeout
 	GameState.game_paused = false
+
+func tremer_camera(intensidade := 6, duracao := 0.2):
+	var tempo := 0.0
+	var original_pos := camera.position
+	while tempo < duracao:
+		camera.position = original_pos + Vector2(
+			randf_range(-intensidade, intensidade),
+			randf_range(-intensidade, intensidade)
+		)
+		await get_tree().process_frame
+		tempo += get_process_delta_time()
+	camera.position = original_pos

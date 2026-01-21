@@ -6,3 +6,5 @@ class_name ItemData
 @export var descricao : String
 @export var tipo : String
 @export var cor : Color
+@export var icon : Texture2D
+@export var utilizavel : bool = false

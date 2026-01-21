@@ -1,6 +1,7 @@
 extends Node
 
 var game_paused := false
+var quest_homero_error_happened : bool = false
 
 var inventory : Array[ItemData] = []
 
@@ -11,7 +12,8 @@ var quest_completion := {
 	"kill_boss_guardian" : false,
 	"chegue_ate_castelo" : false,
 	"explore_nivel_1" : false,
-	"quest_homero" : false
+	"quest_homero" : false,
+	"colete_chave_homero" : false
 }
 
 var items := {
