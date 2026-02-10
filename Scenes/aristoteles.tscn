@@ -1,0 +1,153 @@
+[gd_scene load_steps=17 format=3 uid="uid://ck1023mj447hk"]
+
+[ext_resource type="Script" uid="uid://cd4cvorx1uqit" path="res://Filosofo.gd" id="1_cdpml"]
+[ext_resource type="Texture2D" uid="uid://dk6d6dnj4su3h" path="res://Assets/aristoteles.png" id="2_cdpml"]
+[ext_resource type="Texture2D" uid="uid://u6s5hscdwkjl" path="res://Assets/E-key.png" id="3_a0iwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e574"]
+size = Vector2(13, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lbry"]
+radius = 65.0
+
+[sub_resource type="Animation" id="Animation_a0iwu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_5aspr"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_e0ovo"]
+resource_name = "run_down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ge615"]
+resource_name = "run_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.599827),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e5clc"]
+_data = {
+&"RESET": SubResource("Animation_a0iwu"),
+&"idle": SubResource("Animation_5aspr"),
+&"run_down": SubResource("Animation_e0ovo"),
+&"run_up": SubResource("Animation_ge615")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lg2hw"]
+animation = &"run_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fxe4p"]
+animation = &"run_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m04dp"]
+animation = &"run_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vorvi"]
+animation = &"run_down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_66y2f"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lg2hw")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_fxe4p")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_m04dp")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_vorvi")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_a3i65"]
+states/run/node = SubResource("AnimationNodeBlendSpace2D_66y2f")
+states/run/position = Vector2(337, 64)
+
+[node name="Aristoteles" type="CharacterBody2D"]
+script = ExtResource("1_cdpml")
+npc_id = "alexandre"
+dialog_1 = "alexandre_dialog_1"
+dialog_2 = "alexandre_dialog_2"
+quest_necessaria = "colete_chave_alexandre"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cdpml")
+hframes = 3
+vframes = 2
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 14.5)
+shape = SubResource("RectangleShape2D_7e574")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3lbry")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -29)
+scale = Vector2(0.3125, 0.362069)
+texture = ExtResource("3_a0iwu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e5clc")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_a3i65")
+anim_player = NodePath("../AnimationPlayer")
+parameters/run/blend_position = Vector2(0, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

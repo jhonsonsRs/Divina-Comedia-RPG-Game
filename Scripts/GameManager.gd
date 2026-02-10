@@ -4,9 +4,11 @@ const MAPS := {
 	"BosqueDasSombras2" = preload("res://Scenes/Levels/BosqueDasSombras2.tscn"),
 	"BosqueDasSombras3" = preload("res://Scenes/Levels/BosqueDasSombras3.tscn"),
 	"CasteloMapa" = preload("res://Scenes/Levels/CasteloMapa.tscn"),
-	"castelo_nivel1" = preload("res://Scenes/castelo_nivel1.tscn"),
+	"castelo_nivel1" = preload("res://Scenes/Levels/castelo_nivel1.tscn"),
 	"ValeDosHerois" = preload("res://vale_dos_herois.tscn"),
-	"TemploGregoHomero" = preload("res://Scenes/Levels/templo_grego_homero.tscn")
+	"TemploGregoHomero" = preload("res://Scenes/Levels/templo_grego_homero.tscn"),
+	"castelo_nivel2" = preload("res://Scenes/Levels/castelo_nivel2.tscn"),
+	"arena_alexandre" = preload("res://Scenes/Levels/arena.tscn")
 }
 
 @onready var inventario = $UI/inventario
@@ -52,10 +54,13 @@ func configurar_teste_castelo():
 	GameState.mark_quest_complete("prossiga_1")
 	GameState.mark_quest_complete("kill_boss_guardian")
 	GameState.mark_quest_complete("chegue_ate_castelo")
+	GameState.mark_quest_complete("explore_nivel_1")
+	GameState.mark_quest_complete("quest_homero")
+	GameState.mark_quest_complete("colete_chave_homero")
 	
-	QuestManager.start_quest(QuestManager.QuestID.ExploreNivel1) 
+	QuestManager.start_quest(QuestManager.QuestID.ExploreNivel2) 
 	virgilio_parar_de_seguir() 
-	trocar_mapa("castelo_nivel1", "SpawnPlayer", "")
+	trocar_mapa("castelo_nivel2", "SpawnPlayer", "")
 
 func set_camera_limit(marker_pos_1: Vector2, marker_pos_2: Vector2) -> void:
 	camera.limit_left = min(marker_pos_1.x , marker_pos_2.x)
@@ -285,10 +290,53 @@ func cutscene_boss_guardian():
 	dialog.wait_for_close = true
 
 	var mostrar_ui = CSAction_ToggleUI.new()
-	mostrar_ui.mostrar = true	
+	mostrar_ui.mostrar = true
 
 	cutscene_player.actions.append(esconder_ui)
 	cutscene_player.actions.append(dialog)
+	cutscene_player.actions.append(mostrar_ui)
+	
+	cutscene_player.play_cutscene()
+
+func cutscene_aristoteles_arena():
+	cutscene_player.actions.clear()
+	GameState.game_paused = true 
+	
+	var npc_aristoteles = current_level.find_child("Aristoteles", true, false)
+	if npc_aristoteles == null:
+		printerr("ERRO: Aristoteles não encontrado!")
+		GameState.game_paused = false 
+		return
+
+	var esconder_ui = CSAction_ToggleUI.new()
+	esconder_ui.mostrar = false 
+	
+	var dialog = CSAction_PlayDialog.new()
+	dialog.timeline_name = "aristoteles_arena"
+	dialog.wait_for_close = false 
+	var esperar_sinal = CSAction_WaitForSignal.new()
+	esperar_sinal.signal_name = "aristoteles_sai" 
+	
+	var mover_aristoteles = CSAction_MoveTo.new()
+	mover_aristoteles.character = npc_aristoteles
+	mover_aristoteles.marker_name = "destino_aristoteles"
+	mover_aristoteles.duration = 2.0
+	
+	var comecar_arena = CSAction_CallMethod.new()
+	comecar_arena.group_name = "Arena"
+	comecar_arena.method_name = "start_arena"
+	
+	var esperar_dialogo_fim = CSAction_WaitForDialogEnd.new()
+	
+	var mostrar_ui = CSAction_ToggleUI.new()
+	mostrar_ui.mostrar = true
+	
+	cutscene_player.actions.append(esconder_ui)
+	cutscene_player.actions.append(dialog)
+	cutscene_player.actions.append(esperar_sinal) 
+	cutscene_player.actions.append(mover_aristoteles)
+	cutscene_player.actions.append(comecar_arena)
+	cutscene_player.actions.append(esperar_dialogo_fim)
 	cutscene_player.actions.append(mostrar_ui)
 	
 	cutscene_player.play_cutscene()

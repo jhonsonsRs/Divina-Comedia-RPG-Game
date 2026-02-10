@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgsnvghx7m1s4"]
+[gd_scene load_steps=6 format=3 uid="uid://cfxvr4ggcol0t"]
 
-[ext_resource type="Script" uid="uid://cd4cvorx1uqit" path="res://Filosofo.gd" id="1_3lbry"]
-[ext_resource type="Texture2D" uid="uid://cf2so5lw6aadg" path="res://Assets/npc.png" id="1_fw4b2"]
-[ext_resource type="Texture2D" uid="uid://u6s5hscdwkjl" path="res://Assets/E-key.png" id="3_3lbry"]
+[ext_resource type="Script" uid="uid://cd4cvorx1uqit" path="res://Filosofo.gd" id="1_477p4"]
+[ext_resource type="Texture2D" uid="uid://dd3vbv1qjen1u" path="res://Assets/alexandre_o_grande.png" id="2_ymxbg"]
+[ext_resource type="Texture2D" uid="uid://u6s5hscdwkjl" path="res://Assets/E-key.png" id="3_70xik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7e574"]
 size = Vector2(13, 11)
@@ -10,12 +10,16 @@ size = Vector2(13, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3lbry"]
 radius = 65.0
 
-[node name="Homero" type="CharacterBody2D"]
-script = ExtResource("1_3lbry")
+[node name="Heraclito" type="CharacterBody2D"]
+script = ExtResource("1_477p4")
+npc_id = "heraclito"
+dialog_1 = "heraclito_dialog_1"
+dialog_2 = "heraclito_dialog_2"
+quest_necessaria = "colete_chave_heraclito"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_fw4b2")
-hframes = 3
+position = Vector2(-1, 0)
+texture = ExtResource("2_ymxbg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 14.5)
@@ -30,7 +34,7 @@ shape = SubResource("CircleShape2D_3lbry")
 visible = false
 position = Vector2(0, -29)
 scale = Vector2(0.3125, 0.362069)
-texture = ExtResource("3_3lbry")
+texture = ExtResource("3_70xik")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

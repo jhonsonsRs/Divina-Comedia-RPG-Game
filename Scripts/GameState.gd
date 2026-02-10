@@ -13,7 +13,8 @@ var quest_completion := {
 	"chegue_ate_castelo" : false,
 	"explore_nivel_1" : false,
 	"quest_homero" : false,
-	"colete_chave_homero" : false
+	"colete_chave_homero" : false,
+	"explore_nivel_2" : false
 }
 
 var items := {

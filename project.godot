@@ -25,15 +25,21 @@ GameState="*res://Scripts/GameState.gd"
 [dialogic]
 
 directories/dch_directory={
+"aristoteles": "res://aristoteles.dch",
+"heraclito": "res://heraclito.dch",
 "homero": "res://homero.dch",
 "player": "res://player.dch",
 "virgilio": "res://virgilio.dch"
 }
 directories/dtl_directory={
+"aristoteles_arena": "res://aristoteles_arena.dtl",
 "despedida_virgilio": "res://despedida_virgilio.dtl",
 "finish_quest_sombras": "res://finish_quest_sombras.dtl",
+"heraclito_dialog_1": "res://heraclito_dialog_1.dtl",
+"heraclito_dialog_2": "res://heraclito_dialog_2.dtl",
 "homero": "res://Assets/Portraits/homero.dtl",
 "homero_dialog": "res://Assets/Portraits/homero_dialog.dtl",
+"homero_dialog_final": "res://homero_dialog_final.dtl",
 "pos_boss": "res://pos_boss.dtl",
 "quest_homero_error": "res://quest_homero_error.dtl",
 "tutorial_boss_battle_1": "res://Assets/Portraits/tutorial_boss_battle_1.dtl",
@@ -62,6 +68,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 Player=""
 Virgilio=""
 BossGroup=""
+Arena=""
 
 [input]
 
@@ -121,6 +128,11 @@ inventario={
 leave={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+avance={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
 ]
 }
 

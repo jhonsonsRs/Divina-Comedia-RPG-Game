@@ -10,6 +10,9 @@ enum QuestID {
 	ExploreNivel1,
 	QuestHomero,
 	ColeteChaveHomero,
+	ExploreNivel2,
+	QuestHeraclito,
+	ColeteChaveHeraclito,
 	Acabou
 }
 var current_quest : Quest
@@ -23,6 +26,9 @@ var quest_types = {
 	QuestID.ExploreNivel1 : Quest_ExploreNivel1,
 	QuestID.QuestHomero : Quest_Homero,
 	QuestID.ColeteChaveHomero : Quest_ColeteChaveHomero,
+	QuestID.ExploreNivel2 : Quest_ExploreNivel2,
+	QuestID.QuestHeraclito : Quest_Heraclito,
+	QuestID.ColeteChaveHeraclito : Quest_ColeteChaveHeraclito,
 	QuestID.Acabou : Quest_Acabou
 }
 
