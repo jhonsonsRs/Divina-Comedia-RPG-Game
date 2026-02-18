@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b8oltp67xn260"]
+
+[ext_resource type="Texture2D" uid="uid://bomn76j3x1q7i" path="res://Assets/engrenagem2.png" id="1_ingf5"]
+[ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_m6sqx"]
+
+[resource]
+script = ExtResource("1_m6sqx")
+id = "engrenagem1"
+nome = "Engrenagem"
+descricao = " "
+tipo = "engrenagem"
+icon = ExtResource("1_ingf5")
+metadata/_custom_type_script = "uid://sn72ygx3yt3k"

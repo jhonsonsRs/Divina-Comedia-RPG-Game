@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c47fojdgpsgij"]
+[gd_scene format=3 uid="uid://c47fojdgpsgij"]
 
 [ext_resource type="Script" uid="uid://crxrn6h6pro10" path="res://Scripts/GameManager.gd" id="1_jvpnq"]
 [ext_resource type="PackedScene" uid="uid://bxaycuxxvqqeb" path="res://Scenes/Player.tscn" id="2_s44lv"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://nw1jc5hsagyt" path="res://Assets/Sounds/trovao1.mp3" id="7_2hhwh"]
 [ext_resource type="PackedScene" uid="uid://bh7jr17ct31p1" path="res://Scenes/inventario.tscn" id="7_pu0vx"]
 [ext_resource type="Script" uid="uid://3i3q5ut8fjkm" path="res://Scripts/Cutscenes/CutscenePlayer.gd" id="7_xk7c1"]
+[ext_resource type="PackedScene" uid="uid://klk3pebhxkl0" path="res://Scenes/gear_machine_menu.tscn" id="8_w8oxd"]
 [ext_resource type="AudioStream" uid="uid://ymdr562nq2ec" path="res://Assets/Sounds/trovao2.mp3" id="8_xk7c1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dq4oj"]
@@ -204,25 +205,25 @@ _data = {
 &"intro_sequence": SubResource("Animation_cmwhr")
 }
 
-[node name="Mundo" type="Node2D"]
+[node name="Mundo" type="Node2D" unique_id=1233796954]
 script = ExtResource("1_jvpnq")
 
-[node name="LevelContainer" type="Node" parent="."]
+[node name="LevelContainer" type="Node" parent="." unique_id=153795108]
 
-[node name="Player" parent="." instance=ExtResource("2_s44lv")]
+[node name="Player" parent="." unique_id=1222169487 instance=ExtResource("2_s44lv")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1921047535]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1565375391]
 script = ExtResource("3_o2bb6")
 
-[node name="QuestDisplay" type="Panel" parent="UI"]
+[node name="QuestDisplay" type="Panel" parent="UI" unique_id=577896688]
 offset_left = 406.0
 offset_right = 512.0
 offset_bottom = 48.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_dq4oj")
 
-[node name="QuestLabel" type="Label" parent="UI/QuestDisplay"]
+[node name="QuestLabel" type="Label" parent="UI/QuestDisplay" unique_id=1136398150]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -234,7 +235,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Label" type="Label" parent="UI/QuestDisplay"]
+[node name="Label" type="Label" parent="UI/QuestDisplay" unique_id=620274729]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -248,13 +249,15 @@ theme_override_fonts/font = ExtResource("4_o2bb6")
 theme_override_font_sizes/font_size = 8
 text = "QUESTS"
 
-[node name="MenuEscolhaVerso" parent="UI" instance=ExtResource("6_cmwhr")]
+[node name="MenuEscolhaVerso" parent="UI" unique_id=499532595 instance=ExtResource("6_cmwhr")]
 
-[node name="inventario" parent="UI" instance=ExtResource("7_pu0vx")]
+[node name="inventario" parent="UI" unique_id=1260222174 instance=ExtResource("7_pu0vx")]
 
-[node name="FadeLayer" type="CanvasLayer" parent="."]
+[node name="GearMachineMenu" parent="UI" unique_id=730576687 instance=ExtResource("8_w8oxd")]
 
-[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1829373761]
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer" unique_id=800815877]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -262,22 +265,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer"]
-libraries = {
-&"": SubResource("AnimationLibrary_dq4oj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer" unique_id=437395275]
+libraries/ = SubResource("AnimationLibrary_dq4oj")
 
-[node name="Virgilio" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_v2lyq")]
+[node name="Virgilio" parent="." unique_id=230051997 node_paths=PackedStringArray("player") instance=ExtResource("2_v2lyq")]
 position = Vector2(54, 34)
 player = NodePath("../Player")
 
-[node name="CutscenePlayer" type="Node" parent="."]
+[node name="CutscenePlayer" type="Node" parent="." unique_id=1847697738]
 script = ExtResource("7_xk7c1")
 
-[node name="CutsceneLayer" type="CanvasLayer" parent="."]
+[node name="CutsceneLayer" type="CanvasLayer" parent="." unique_id=366430603]
 layer = 100
 
-[node name="TelaPreta" type="ColorRect" parent="CutsceneLayer"]
+[node name="TelaPreta" type="ColorRect" parent="CutsceneLayer" unique_id=2047099008]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,13 +288,11 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="SoundTrovao1" type="AudioStreamPlayer" parent="."]
+[node name="SoundTrovao1" type="AudioStreamPlayer" parent="." unique_id=1667782098]
 stream = ExtResource("7_2hhwh")
 
-[node name="SoundTrovao2" type="AudioStreamPlayer" parent="."]
+[node name="SoundTrovao2" type="AudioStreamPlayer" parent="." unique_id=1321677008]
 stream = ExtResource("8_xk7c1")
 
-[node name="IntroAnim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_w8oxd")
-}
+[node name="IntroAnim" type="AnimationPlayer" parent="." unique_id=381540531]
+libraries/ = SubResource("AnimationLibrary_w8oxd")

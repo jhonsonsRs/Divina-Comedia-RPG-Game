@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8wk5pvqk1sq0"]
+[gd_scene format=3 uid="uid://8wk5pvqk1sq0"]
 
 [ext_resource type="Script" uid="uid://bqo5re3d14usi" path="res://Scripts/estatua_heroi.gd" id="1_fu1kn"]
 [ext_resource type="Texture2D" uid="uid://hmn61lo520gd" path="res://Assets/Levels/ValeDosHerois/EstatuaSombra.png" id="2_axbgs"]
@@ -37,27 +37,27 @@ scale_curve = SubResource("CurveTexture_bk2kc")
 color = Color(1, 0.827451, 0.415686, 1)
 color_ramp = SubResource("GradientTexture1D_axbgs")
 
-[node name="EstatuaHeroi" type="StaticBody2D"]
+[node name="EstatuaHeroi" type="StaticBody2D" unique_id=2006878128]
 script = ExtResource("1_fu1kn")
 
-[node name="sombra" type="Sprite2D" parent="."]
+[node name="sombra" type="Sprite2D" parent="." unique_id=1092422464]
 modulate = Color(1, 1, 1, 0.352941)
 texture = ExtResource("2_axbgs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=900542782]
 position = Vector2(0, -7)
 texture = ExtResource("3_hsdhs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1518974693]
 position = Vector2(-0.5, 17.5)
 shape = SubResource("RectangleShape2D_bk2kc")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1515259971]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1591427606]
 shape = SubResource("CircleShape2D_taae8")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1597835291]
 emitting = false
 amount = 60
 lifetime = 1.5

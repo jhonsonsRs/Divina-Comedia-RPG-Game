@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=21 format=3 uid="uid://c76kbpbw3noaf"]
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://c76kbpbw3noaf"]
 
 [ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.tscn" id="1_flcq1"]
 [ext_resource type="Script" uid="uid://tmds26cwlhu" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_1a31r"]
@@ -15,22 +15,18 @@
 [sub_resource type="Resource" id="Resource_hokbv"]
 script = ExtResource("2_1a31r")
 scene = ExtResource("1_flcq1")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_6sfd4"]
 script = ExtResource("2_1a31r")
 scene = ExtResource("3_pljp8")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_fpxtb"]
 script = ExtResource("2_1a31r")
 scene = ExtResource("4_n8uk3")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_bvwx8"]
 script = ExtResource("2_1a31r")
 scene = ExtResource("5_wpxql")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_lkr5j"]
 script = ExtResource("2_1a31r")
@@ -57,7 +53,6 @@ overrides = {
 [sub_resource type="Resource" id="Resource_roswc"]
 script = ExtResource("2_1a31r")
 scene = ExtResource("7_q6x1d")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_mf0br"]
 script = ExtResource("2_1a31r")
@@ -72,12 +67,10 @@ overrides = {
 [sub_resource type="Resource" id="Resource_sgaut"]
 script = ExtResource("2_1a31r")
 scene = ExtResource("9_i6exy")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_0uecl"]
 script = ExtResource("2_1a31r")
 scene = ExtResource("10_vgwpa")
-overrides = {}
 
 [resource]
 script = ExtResource("11_sx2xv")
@@ -94,6 +87,4 @@ layer_info = {
 "16": SubResource("Resource_sgaut"),
 "17": SubResource("Resource_0uecl")
 }
-base_overrides = {}
-layers = Array[ExtResource("2_1a31r")]([])
 metadata/_latest_layer = "10"

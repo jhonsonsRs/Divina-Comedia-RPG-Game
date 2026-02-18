@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dywe8sidx05tn"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dywe8sidx05tn"]
 
 [ext_resource type="Texture2D" uid="uid://3vne6tdttsfu" path="res://Assets/key_icon.png" id="1_s61cg"]
 [ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="2_vmkft"]
@@ -9,7 +9,5 @@ id = "key_heraclito"
 nome = "Chave de Heráclito"
 descricao = "Chave para o portão final"
 tipo = "chave"
-cor = Color(0, 0, 0, 1)
 icon = ExtResource("1_s61cg")
-utilizavel = false
 metadata/_custom_type_script = "uid://sn72ygx3yt3k"

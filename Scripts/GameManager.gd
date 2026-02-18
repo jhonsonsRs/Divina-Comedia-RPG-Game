@@ -8,11 +8,14 @@ const MAPS := {
 	"ValeDosHerois" = preload("res://vale_dos_herois.tscn"),
 	"TemploGregoHomero" = preload("res://Scenes/Levels/templo_grego_homero.tscn"),
 	"castelo_nivel2" = preload("res://Scenes/Levels/castelo_nivel2.tscn"),
-	"arena_alexandre" = preload("res://Scenes/Levels/arena.tscn")
+	"arena_alexandre" = preload("res://Scenes/Levels/arena.tscn"),
+	"castelo_nivel3" = preload("res://Scenes/Levels/castelo_nivel3.tscn"),
+	"mapa_aristoteles" = preload("res://Scenes/mapa_aristoteles.tscn")
 }
 
 @onready var inventario = $UI/inventario
 @onready var menu_verso = $UI/MenuEscolhaVerso
+@onready var menu_gear_machine = $UI/GearMachineMenu
 @onready var player: CharacterBody2D = $Player
 @onready var virgilio : CharacterBody2D = $Virgilio
 @onready var level_container: Node = $LevelContainer
@@ -57,10 +60,13 @@ func configurar_teste_castelo():
 	GameState.mark_quest_complete("explore_nivel_1")
 	GameState.mark_quest_complete("quest_homero")
 	GameState.mark_quest_complete("colete_chave_homero")
+	GameState.mark_quest_complete("explore_nivel_2")
+	GameState.mark_quest_complete("quest_heraclito")
+	GameState.mark_quest_complete("colete_chave_heraclito")
 	
-	QuestManager.start_quest(QuestManager.QuestID.ExploreNivel2) 
+	QuestManager.start_quest(QuestManager.QuestID.ExploreNivel3) 
 	virgilio_parar_de_seguir() 
-	trocar_mapa("castelo_nivel2", "SpawnPlayer", "")
+	trocar_mapa("castelo_nivel3", "SpawnPlayer", "")
 
 func set_camera_limit(marker_pos_1: Vector2, marker_pos_2: Vector2) -> void:
 	camera.limit_left = min(marker_pos_1.x , marker_pos_2.x)

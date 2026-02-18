@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dayiobu573l3v"]
+
+[ext_resource type="Script" uid="uid://bbcohhb815ed3" path="res://Scripts/Items/verso_pickup.gd" id="1_j3f2a"]
+[ext_resource type="Texture2D" uid="uid://bomn76j3x1q7i" path="res://Assets/engrenagem2.png" id="2_qc2pk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e056y"]
+radius = 31.0
+
+[node name="Engrenagem" type="Area2D" unique_id=1508775504]
+script = ExtResource("1_j3f2a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2002530264]
+scale = Vector2(0.453125, 0.42187503)
+texture = ExtResource("2_qc2pk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797503625]
+shape = SubResource("CircleShape2D_e056y")

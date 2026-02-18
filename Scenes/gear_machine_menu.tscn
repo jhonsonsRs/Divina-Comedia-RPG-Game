@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://klk3pebhxkl0"]
+
+[ext_resource type="Texture2D" uid="uid://ckede20x3c41h" path="res://Assets/gearMachineMenu.png" id="1_12w6s"]
+[ext_resource type="Script" uid="uid://boxp1s1yl1fyj" path="res://Scripts/gear_machine_menu.gd" id="1_s2b42"]
+
+[node name="GearMachineMenu" type="Control" unique_id=730576687]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s2b42")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=916797133]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 507.0
+offset_bottom = 284.0
+texture = ExtResource("1_12w6s")
+
+[node name="Button" type="Button" parent="." unique_id=1553523690]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 251.0
+offset_right = 358.0
+offset_bottom = 282.0
+text = "COLOCAR ENGRENAGEM"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

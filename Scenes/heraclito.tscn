@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfxvr4ggcol0t"]
+[gd_scene format=3 uid="uid://cfxvr4ggcol0t"]
 
 [ext_resource type="Script" uid="uid://cd4cvorx1uqit" path="res://Filosofo.gd" id="1_477p4"]
 [ext_resource type="Texture2D" uid="uid://dd3vbv1qjen1u" path="res://Assets/alexandre_o_grande.png" id="2_ymxbg"]
@@ -10,27 +10,27 @@ size = Vector2(13, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3lbry"]
 radius = 65.0
 
-[node name="Heraclito" type="CharacterBody2D"]
+[node name="Heraclito" type="CharacterBody2D" unique_id=469731901]
 script = ExtResource("1_477p4")
 npc_id = "heraclito"
 dialog_1 = "heraclito_dialog_1"
 dialog_2 = "heraclito_dialog_2"
 quest_necessaria = "colete_chave_heraclito"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449516082]
 position = Vector2(-1, 0)
 texture = ExtResource("2_ymxbg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2114199321]
 position = Vector2(-0.5, 14.5)
 shape = SubResource("RectangleShape2D_7e574")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1152446342]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2096226223]
 shape = SubResource("CircleShape2D_3lbry")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1403374116]
 visible = false
 position = Vector2(0, -29)
 scale = Vector2(0.3125, 0.362069)

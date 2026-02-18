@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Divina Comedia - Inferno: O Limbo"
 run/main_scene="uid://c47fojdgpsgij"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
@@ -33,6 +37,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "aristoteles_arena": "res://aristoteles_arena.dtl",
+"aristoteles_dialog_1": "res://aristoteles_dialog_1.dtl",
 "despedida_virgilio": "res://despedida_virgilio.dtl",
 "finish_quest_sombras": "res://finish_quest_sombras.dtl",
 "heraclito_dialog_1": "res://heraclito_dialog_1.dtl",
