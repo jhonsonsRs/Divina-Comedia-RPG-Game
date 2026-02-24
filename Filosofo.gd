@@ -14,7 +14,6 @@ var can_start_dialog : bool = true
 @onready var anim_player = get_node_or_null("AnimationPlayer")
 @onready var anim_tree = get_node_or_null("AnimationTree")
 
-
 func _process(_delta: float) -> void:
 	if can_start_dialog == false:
 		can_interact = false

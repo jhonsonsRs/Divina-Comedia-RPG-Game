@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b3d177q2qp6r2"]
+
+[ext_resource type="Script" uid="uid://cdyq7buc2asp7" path="res://Scripts/objeto_peso.gd" id="1_u4u1n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndt1w"]
+radius = 48.010414
+
+[node name="ObjetoPeso" type="Node2D" unique_id=901246984]
+script = ExtResource("1_u4u1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1231617251]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=550771993]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1930801415]
+shape = SubResource("CircleShape2D_ndt1w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

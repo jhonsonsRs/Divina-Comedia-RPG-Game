@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://bxaycuxxvqqeb"]
+[gd_scene format=3 uid="uid://bxaycuxxvqqeb"]
 
 [ext_resource type="Script" uid="uid://cav0hby3nscbw" path="res://Scripts/Player/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://c7mf3msry4vkc" path="res://Assets/Player/ShizukaAsset3.png" id="2_kyqiw"]
@@ -4123,35 +4123,33 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.0
 color_ramp = SubResource("GradientTexture1D_glx4g")
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1693395610 node_paths=PackedStringArray("animation_tree") groups=["Player"]]
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_kyqiw")
 animation_tree = NodePath("AnimationTree")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=477067881]
 position = Vector2(0.5, 0)
 texture = ExtResource("2_kyqiw")
 hframes = 9
 vframes = 30
 frame = 49
 
-[node name="MeleeEffect" type="Sprite2D" parent="."]
+[node name="MeleeEffect" type="Sprite2D" parent="." unique_id=403383592]
 position = Vector2(-4, -1)
 texture = ExtResource("10_yoq75")
 flip_v = true
 hframes = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1150191932]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_kyqiw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_m0x7a")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2136396455]
+libraries/ = SubResource("AnimationLibrary_m0x7a")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1142280196]
 tree_root = SubResource("AnimationNodeStateMachine_i2e8t")
 anim_player = NodePath("../AnimationPlayer")
 parameters/attack1/blend_position = Vector2(0, 0)
@@ -4161,69 +4159,69 @@ parameters/attack4/blend_position = Vector2(0, 0)
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/run/blend_position = Vector2(0, 0)
 
-[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="FiniteStateMachine" type="Node" parent="." unique_id=88533382 node_paths=PackedStringArray("player")]
 script = ExtResource("3_5ixxa")
 player = NodePath("..")
 
-[node name="Idle" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Idle" type="Node" parent="FiniteStateMachine" unique_id=218301850 node_paths=PackedStringArray("player")]
 script = ExtResource("4_nn08x")
 player = NodePath("../..")
 
-[node name="Run" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Run" type="Node" parent="FiniteStateMachine" unique_id=1125026963 node_paths=PackedStringArray("player")]
 script = ExtResource("5_52ee3")
 player = NodePath("../..")
 
-[node name="Attack1" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Attack1" type="Node" parent="FiniteStateMachine" unique_id=1541924119 node_paths=PackedStringArray("player")]
 script = ExtResource("6_bhhdu")
 lunge_speed = 200.0
 player = NodePath("../..")
 
-[node name="Attack2" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Attack2" type="Node" parent="FiniteStateMachine" unique_id=1691042942 node_paths=PackedStringArray("player")]
 script = ExtResource("6_bhhdu")
 attack_animation_name = "attack2"
 lunge_speed = 200.0
 player = NodePath("../..")
 
-[node name="Attack3" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Attack3" type="Node" parent="FiniteStateMachine" unique_id=1301395275 node_paths=PackedStringArray("player")]
 script = ExtResource("6_bhhdu")
 attack_animation_name = "attack3"
 lunge_speed = 200.0
 player = NodePath("../..")
 
-[node name="Attack4" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+[node name="Attack4" type="Node" parent="FiniteStateMachine" unique_id=840833191 node_paths=PackedStringArray("player")]
 script = ExtResource("7_bhhdu")
 attack_duration = 0.9
 lunge_speed = 400.0
 lunge_friction = 0.1
 player = NodePath("../..")
 
-[node name="AttackCooldown" type="Timer" parent="."]
+[node name="AttackCooldown" type="Timer" parent="." unique_id=979379070]
 wait_time = 0.5
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1435807703]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("9_megsn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1870120526]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_yoq75")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=306596144]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("10_ksbbd")
 damage = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1402468650]
 position = Vector2(16, 1)
 shape = SubResource("RectangleShape2D_megsn")
 disabled = true
 
-[node name="AttackSound1" type="AudioStreamPlayer" parent="."]
+[node name="AttackSound1" type="AudioStreamPlayer" parent="." unique_id=1024670189]
 stream = ExtResource("11_ksbbd")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2144060725]
 emitting = false
 amount = 100
 lifetime = 0.8

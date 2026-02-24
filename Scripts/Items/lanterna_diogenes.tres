@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://j6csbldw4wmc"]
+
+[ext_resource type="Texture2D" uid="uid://c28hdpsrviacn" path="res://Assets/lanterna.png" id="1_odayr"]
+[ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_yddhj"]
+
+[resource]
+script = ExtResource("1_yddhj")
+id = "lanterna_diogenes"
+nome = "Lanterna de Diógenes"
+descricao = " "
+tipo = "lanterna"
+icon = ExtResource("1_odayr")
+metadata/_custom_type_script = "uid://sn72ygx3yt3k"

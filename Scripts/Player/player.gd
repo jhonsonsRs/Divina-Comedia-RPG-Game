@@ -11,6 +11,7 @@ var last_direction: Vector2 = Vector2(0, 1) # Começa olhando para baixo
 var health : int = 100
 var is_invincible: bool = false
 var is_hurt : bool = false
+var carrying_object = null
 @onready var camera := $Camera2D
 
 # Exports

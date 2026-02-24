@@ -29,6 +29,7 @@ GameState="*res://Scripts/GameState.gd"
 [dialogic]
 
 directories/dch_directory={
+"alexandre": "res://alexandre.dch",
 "aristoteles": "res://aristoteles.dch",
 "heraclito": "res://heraclito.dch",
 "homero": "res://homero.dch",
@@ -36,6 +37,8 @@ directories/dch_directory={
 "virgilio": "res://virgilio.dch"
 }
 directories/dtl_directory={
+"alexandre_dialog": "res://alexandre_dialog.dtl",
+"alexandre_dialog_2": "res://alexandre_dialog_2.dtl",
 "aristoteles_arena": "res://aristoteles_arena.dtl",
 "aristoteles_dialog_1": "res://aristoteles_dialog_1.dtl",
 "despedida_virgilio": "res://despedida_virgilio.dtl",

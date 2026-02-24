@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cmao45076yke0"]
+
+[ext_resource type="Script" uid="uid://bbcohhb815ed3" path="res://Scripts/Items/verso_pickup.gd" id="1_l1r38"]
+[ext_resource type="Texture2D" uid="uid://c28hdpsrviacn" path="res://Assets/lanterna.png" id="2_nknc6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c2fk8"]
+radius = 77.0
+
+[node name="Lanterna_Diogenes" type="Area2D" unique_id=801922541]
+script = ExtResource("1_l1r38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=236807750]
+shape = SubResource("CircleShape2D_c2fk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=718915161]
+texture = ExtResource("2_nknc6")

@@ -5,10 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://ckhsseqxp4av5" path="res://Assets/Levels/MapaAristoteles/seasonal sample (summer).png" id="2_j7uhp"]
 [ext_resource type="Texture2D" uid="uid://dwkmfyfhb6bvp" path="res://Assets/Levels/MapaAristoteles/TX Tileset Grass2.png" id="3_7rsbu"]
 [ext_resource type="PackedScene" uid="uid://c4fgaqsri57hs" path="res://Scenes/gear_machine.tscn" id="5_7rsbu"]
+[ext_resource type="PackedScene" uid="uid://b3d177q2qp6r2" path="res://Scenes/objeto_peso.tscn" id="6_k1erp"]
 [ext_resource type="PackedScene" uid="uid://dayiobu573l3v" path="res://Scenes/engrenagem.tscn" id="6_ona8g"]
+[ext_resource type="Texture2D" uid="uid://bl32rl1l10u4a" path="res://Assets/cabeca.png" id="7_b877j"]
 [ext_resource type="Resource" uid="uid://b8oltp67xn260" path="res://Scripts/Items/engrenagem.tres" id="7_k1erp"]
+[ext_resource type="PackedScene" uid="uid://ns05rq5dkbv7" path="res://Scenes/balanca.tscn" id="7_v4umf"]
+[ext_resource type="Texture2D" uid="uid://tpx8vpastxy2" path="res://Assets/escudo_bronze.png" id="8_conmp"]
 [ext_resource type="Resource" uid="uid://3vnp8grrrfwq" path="res://Scripts/Items/engrenagem2.tres" id="8_v4umf"]
+[ext_resource type="Texture2D" uid="uid://ldx1t4uu4cng" path="res://Assets/pilar.png" id="9_5pnnh"]
 [ext_resource type="Resource" uid="uid://bwm4jojn5p7or" path="res://Scripts/Items/engrenagem3.tres" id="9_g4i5q"]
+[ext_resource type="Texture2D" uid="uid://retyl80wohx0" path="res://Assets/sword_broken.png" id="10_332qn"]
+[ext_resource type="Texture2D" uid="uid://7yrcntcsi6hf" path="res://Assets/vaso.png" id="11_p8teu"]
+[ext_resource type="Texture2D" uid="uid://djrkm3e8hsy1j" path="res://Assets/skull.png" id="12_5pnnh"]
+[ext_resource type="Texture2D" uid="uid://cyw2ddsttj4s6" path="res://Assets/coruja,.png" id="13_332qn"]
+[ext_resource type="PackedScene" uid="uid://dlf4q0uitb5ra" path="res://Scenes/alexandre.tscn" id="15_332qn"]
+[ext_resource type="PackedScene" uid="uid://cmao45076yke0" path="res://Scenes/lanterna_diogenes.tscn" id="20_p8teu"]
+[ext_resource type="Resource" uid="uid://j6csbldw4wmc" path="res://Scripts/Items/lanterna_diogenes.tres" id="21_behlq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wk7l"]
 texture = ExtResource("1_snjnf")
@@ -743,6 +755,46 @@ y_sort_enabled = true
 [node name="GearMachine" parent="YSort" unique_id=248504656 instance=ExtResource("5_7rsbu")]
 position = Vector2(1176, 793)
 
+[node name="Cabeca_Objeto" parent="YSort" unique_id=901246984 instance=ExtResource("6_k1erp")]
+position = Vector2(2915, 1029)
+peso = 7.0
+imagem_do_item = ExtResource("7_b877j")
+
+[node name="Escuto_Objeto" parent="YSort" unique_id=1494643946 instance=ExtResource("6_k1erp")]
+position = Vector2(2768, 1078)
+imagem_do_item = ExtResource("8_conmp")
+
+[node name="Pilar_Objeto" parent="YSort" unique_id=1717956625 instance=ExtResource("6_k1erp")]
+position = Vector2(2627, 1042)
+peso = 13.0
+imagem_do_item = ExtResource("9_5pnnh")
+
+[node name="Espada_Objeto" parent="YSort" unique_id=1186708688 instance=ExtResource("6_k1erp")]
+position = Vector2(2662, 1192)
+peso = 3.0
+imagem_do_item = ExtResource("10_332qn")
+
+[node name="Vaso_Objeto" parent="YSort" unique_id=318639348 instance=ExtResource("6_k1erp")]
+position = Vector2(2502, 1128)
+peso = 2.0
+imagem_do_item = ExtResource("11_p8teu")
+
+[node name="Cranio_Objeto" parent="YSort" unique_id=1151082394 instance=ExtResource("6_k1erp")]
+position = Vector2(2846, 1186)
+peso = 11.0
+imagem_do_item = ExtResource("12_5pnnh")
+
+[node name="Coruja_Objeto" parent="YSort" unique_id=1594517566 instance=ExtResource("6_k1erp")]
+position = Vector2(3005, 1152)
+peso = 9.0
+imagem_do_item = ExtResource("13_332qn")
+
+[node name="Balanca" parent="YSort" unique_id=686441468 instance=ExtResource("7_v4umf")]
+position = Vector2(2822, 933)
+
+[node name="Alexandre" parent="YSort" unique_id=164295744 instance=ExtResource("15_332qn")]
+position = Vector2(2013, 219)
+
 [node name="Spawns" type="Node2D" parent="." unique_id=279946027]
 
 [node name="SpawnPlayer" type="Marker2D" parent="Spawns" unique_id=1618822792]
@@ -765,3 +817,7 @@ item_data = ExtResource("8_v4umf")
 [node name="Engrenagem3" parent="." unique_id=1021962618 instance=ExtResource("6_ona8g")]
 position = Vector2(1108, 942)
 item_data = ExtResource("9_g4i5q")
+
+[node name="Lanterna_Diogenes" parent="." unique_id=801922541 instance=ExtResource("20_p8teu")]
+position = Vector2(2219, 249)
+item_data = ExtResource("21_behlq")

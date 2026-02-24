@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dlf4q0uitb5ra"]
+
+[ext_resource type="Script" uid="uid://cgntmry1c7tar" path="res://Scripts/alexandre.gd" id="1_axvtu"]
+[ext_resource type="Texture2D" uid="uid://bsgerxjunlf8v" path="res://Assets/alexandre.png" id="1_wrxjt"]
+[ext_resource type="Texture2D" uid="uid://u6s5hscdwkjl" path="res://Assets/E-key.png" id="3_fpbp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axvtu"]
+size = Vector2(16, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrxjt"]
+radius = 51.088158
+
+[node name="Alexandre" type="CharacterBody2D" unique_id=164295744]
+script = ExtResource("1_axvtu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=434039080]
+texture = ExtResource("1_wrxjt")
+hframes = 10
+vframes = 7
+frame = 21
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2142633726]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_axvtu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=826668149]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1452243136]
+shape = SubResource("CircleShape2D_wrxjt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=136751130]
+position = Vector2(-9.536743e-07, -25.999998)
+scale = Vector2(0.34375, 0.39655173)
+texture = ExtResource("3_fpbp3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
