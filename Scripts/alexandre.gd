@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 			Dialogic.start("alexandre_dialog_2")
 			encerrar_dialogo = true
 			GameState.remove_item("lanterna_diogenes")
-			#dar a pedra
+			GameState.lanterna_entregue.emit()
 		if not Dialogic.timeline_ended.is_connected(_on_dialog_finished_enable_interaction):
 				Dialogic.timeline_ended.connect(_on_dialog_finished_enable_interaction)
 				

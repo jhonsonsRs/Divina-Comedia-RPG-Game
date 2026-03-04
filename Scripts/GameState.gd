@@ -4,6 +4,10 @@ var game_paused := false
 var quest_homero_error_happened : bool = false
 var engrenagens_coletadas : int = 0
 var engranagens_necessarias : int = 3
+signal maquina_consertada
+signal balanca_equilibrada
+signal lanterna_entregue
+signal caixa_quebrada
 
 var inventory : Array[ItemData] = []
 

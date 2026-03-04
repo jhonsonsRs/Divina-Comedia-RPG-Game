@@ -21,6 +21,7 @@ func update_balance():
 	var total_pecas_na_balanca = pecas_esquerda + pecas_direita
 	if abs(difference) <= tolerance and total_pecas_na_balanca == total_pecas_puzzle:
 		print("VITÓRIA DEFINITIVA! Todas as peças usadas e a balança está equilibrada!")
+		GameState.balanca_equilibrada.emit()
 		#liberar pedra
 
 func _on_left_area_entered(area: Area2D) -> void:

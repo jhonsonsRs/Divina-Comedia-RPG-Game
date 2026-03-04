@@ -37,5 +37,6 @@ func _on_button_pressed() -> void:
 	if GameState.engrenagens_coletadas >= GameState.engranagens_necessarias:
 		self.visible = false
 		GameState.game_paused = false
+		GameState.maquina_consertada.emit()
 	
 		

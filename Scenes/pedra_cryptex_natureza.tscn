@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b0cvx1v2i0vel"]
+
+[ext_resource type="Script" uid="uid://bbcohhb815ed3" path="res://Scripts/Items/verso_pickup.gd" id="1_kcn5v"]
+[ext_resource type="Resource" uid="uid://ca3ggx8e5h5dt" path="res://Scripts/Items/pedra_1.tres" id="2_15ggy"]
+[ext_resource type="Texture2D" uid="uid://dyx6j058bmxaf" path="res://Assets/stone.png" id="3_c72f4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wj454"]
+radius = 19.026299
+
+[node name="Pedra_cryptex_natureza" type="Area2D" unique_id=417747447]
+script = ExtResource("1_kcn5v")
+item_data = ExtResource("2_15ggy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=915333746]
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(0.59375, 0.515625)
+texture = ExtResource("3_c72f4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1998846203]
+shape = SubResource("CircleShape2D_wj454")
