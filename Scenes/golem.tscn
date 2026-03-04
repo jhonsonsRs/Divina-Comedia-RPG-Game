@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cnd4nu35rnn54"]
+
+[ext_resource type="Texture2D" uid="uid://dt6uvgs5be7fn" path="res://icon.svg" id="1_bs7yq"]
+[ext_resource type="Script" uid="uid://c2bo5gpeag04x" path="res://Scripts/golem.gd" id="1_lqe5q"]
+[ext_resource type="Script" uid="uid://bumgww6r3hmk" path="res://Scripts/Enemys/EnemyStateMachine.gd" id="3_ecptb"]
+[ext_resource type="Script" uid="uid://c3fti1odppgau" path="res://Scripts/Enemys/state_golem_follow.gd" id="4_ecptb"]
+[ext_resource type="Script" uid="uid://erw4bmwssju6" path="res://Scripts/Enemys/state_golem_prepare.gd" id="5_3yf8f"]
+[ext_resource type="Script" uid="uid://bgqw8k3e5v3cd" path="res://Scripts/Enemys/state_golem_dash.gd" id="6_tspt6"]
+[ext_resource type="Script" uid="uid://dxq6tyr2tyhdi" path="res://Scripts/Enemys/state_golem_stunned.gd" id="7_t2gh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_568nj"]
+size = Vector2(22, 10)
+
+[node name="Golem" type="CharacterBody2D" unique_id=1036012147 groups=["invuneravel"]]
+script = ExtResource("1_lqe5q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=480422798]
+position = Vector2(0, -1.3552527e-20)
+scale = Vector2(0.1953125, 0.19531253)
+texture = ExtResource("1_bs7yq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893704914]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_568nj")
+
+[node name="StateTimer" type="Timer" parent="." unique_id=484180503]
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=986726988 node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_ecptb")
+enemy = NodePath("..")
+
+[node name="Follow" type="Node" parent="EnemyStateMachine" unique_id=2083112336]
+script = ExtResource("4_ecptb")
+
+[node name="Prepare" type="Node" parent="EnemyStateMachine" unique_id=861409287]
+script = ExtResource("5_3yf8f")
+
+[node name="Dash" type="Node" parent="EnemyStateMachine" unique_id=402612961]
+script = ExtResource("6_tspt6")
+
+[node name="Stunned" type="Node" parent="EnemyStateMachine" unique_id=1585615904]
+script = ExtResource("7_t2gh5")

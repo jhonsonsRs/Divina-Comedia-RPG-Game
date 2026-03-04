@@ -19,8 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://djrkm3e8hsy1j" path="res://Assets/skull.png" id="12_5pnnh"]
 [ext_resource type="Texture2D" uid="uid://cyw2ddsttj4s6" path="res://Assets/coruja,.png" id="13_332qn"]
 [ext_resource type="PackedScene" uid="uid://dlf4q0uitb5ra" path="res://Scenes/alexandre.tscn" id="15_332qn"]
+[ext_resource type="PackedScene" uid="uid://c8hvjslrma6xm" path="res://Scenes/glass_box.tscn" id="16_4ycp2"]
+[ext_resource type="PackedScene" uid="uid://cnd4nu35rnn54" path="res://Scenes/golem.tscn" id="17_12wih"]
 [ext_resource type="PackedScene" uid="uid://cmao45076yke0" path="res://Scenes/lanterna_diogenes.tscn" id="20_p8teu"]
 [ext_resource type="Resource" uid="uid://j6csbldw4wmc" path="res://Scripts/Items/lanterna_diogenes.tres" id="21_behlq"]
+[ext_resource type="Script" uid="uid://bgwgxcq6wddh3" path="res://Scripts/Portal.gd" id="24_12wih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wk7l"]
 texture = ExtResource("1_snjnf")
@@ -742,6 +745,9 @@ sources/0 = SubResource("TileSetAtlasSource_3wk7l")
 sources/1 = SubResource("TileSetAtlasSource_rvjlp")
 sources/3 = SubResource("TileSetAtlasSource_dcnji")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53cdg"]
+size = Vector2(83, 56)
+
 [node name="Mapa_Aristoteles" type="Node2D" unique_id=442995027]
 script = ExtResource("1_j7uhp")
 
@@ -795,6 +801,12 @@ position = Vector2(2822, 933)
 [node name="Alexandre" parent="YSort" unique_id=164295744 instance=ExtResource("15_332qn")]
 position = Vector2(2013, 219)
 
+[node name="GlassBox" parent="YSort" unique_id=451199539 instance=ExtResource("16_4ycp2")]
+position = Vector2(2013, 1669)
+
+[node name="Golem" parent="YSort" unique_id=1036012147 instance=ExtResource("17_12wih")]
+position = Vector2(2072, 1536)
+
 [node name="Spawns" type="Node2D" parent="." unique_id=279946027]
 
 [node name="SpawnPlayer" type="Marker2D" parent="Spawns" unique_id=1618822792]
@@ -821,3 +833,12 @@ item_data = ExtResource("9_g4i5q")
 [node name="Lanterna_Diogenes" parent="." unique_id=801922541 instance=ExtResource("20_p8teu")]
 position = Vector2(2219, 249)
 item_data = ExtResource("21_behlq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2055153628]
+script = ExtResource("24_12wih")
+target_map_name = "golem_room"
+target_spawn_name = "SpawnPlayer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1169191244]
+position = Vector2(2007, 1342)
+shape = SubResource("RectangleShape2D_53cdg")

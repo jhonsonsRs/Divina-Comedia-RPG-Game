@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c8hvjslrma6xm"]
+
+[ext_resource type="Script" uid="uid://ds2twt5b0ablf" path="res://Scripts/glass_box.gd" id="1_dlc7c"]
+[ext_resource type="Texture2D" uid="uid://cih8o6sioh4xt" path="res://Assets/glass_box.png" id="2_dnika"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaqpv"]
+size = Vector2(24, 26)
+
+[node name="GlassBox" type="StaticBody2D" unique_id=451199539 groups=["caixa_de_vidro", "invuneravel"]]
+script = ExtResource("1_dlc7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=61143093]
+texture = ExtResource("2_dnika")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1357673819]
+shape = SubResource("RectangleShape2D_jaqpv")

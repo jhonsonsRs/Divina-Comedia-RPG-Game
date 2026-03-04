@@ -10,7 +10,8 @@ const MAPS := {
 	"castelo_nivel2" = preload("res://Scenes/Levels/castelo_nivel2.tscn"),
 	"arena_alexandre" = preload("res://Scenes/Levels/arena.tscn"),
 	"castelo_nivel3" = preload("res://Scenes/Levels/castelo_nivel3.tscn"),
-	"mapa_aristoteles" = preload("res://Scenes/mapa_aristoteles.tscn")
+	"mapa_aristoteles" = preload("res://Scenes/mapa_aristoteles.tscn"),
+	"golem_room" = preload("res://Scenes/golem_room.tscn")
 }
 
 @onready var inventario = $UI/inventario

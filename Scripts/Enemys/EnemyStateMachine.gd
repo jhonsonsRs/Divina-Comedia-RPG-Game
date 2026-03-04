@@ -15,8 +15,8 @@ func _iniciar_maquina() -> void:
 		if child is EnemyState:
 			child.enemy = enemy
 			
-	if has_node("Idle"):
-		current_state = $Idle
+	if has_node("Follow"):
+		current_state = $Follow
 		current_state.enter()
 
 func _physics_process(delta: float) -> void:

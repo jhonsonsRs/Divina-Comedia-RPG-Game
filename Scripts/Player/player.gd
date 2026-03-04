@@ -160,3 +160,9 @@ func _on_hurtbox_hit_received(hitbox: Area2D) -> void:
 	aplicar_knockback(direcao_empurrao)
 	camera_shake()
 	start_invincibility()
+
+func recuo_da_espada(posicao_do_alvo: Vector2) -> void:
+	print("CLING! A espada bateu em algo de metal/vidro!")
+	var direcao_empurrao = (global_position - posicao_do_alvo).normalized()
+	aplicar_knockback(direcao_empurrao)
+	camera_shake()

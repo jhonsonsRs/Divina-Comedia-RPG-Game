@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dwgw2vlp66ws1"]
+
+[ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_7cup7"]
+[ext_resource type="Texture2D" uid="uid://dyx6j058bmxaf" path="res://Assets/stone.png" id="1_kgok6"]
+
+[resource]
+script = ExtResource("1_7cup7")
+id = "razão_pedra"
+nome = "RAZÃO"
+descricao = " "
+tipo = "pedra_cryptex"
+icon = ExtResource("1_kgok6")
+metadata/_custom_type_script = "uid://sn72ygx3yt3k"

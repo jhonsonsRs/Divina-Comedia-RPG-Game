@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://iabu80mxkekj"]
+
+[ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="1_m5b4i"]
+[ext_resource type="Texture2D" uid="uid://dyx6j058bmxaf" path="res://Assets/stone.png" id="1_wre4q"]
+
+[resource]
+script = ExtResource("1_m5b4i")
+id = "habito_pedra"
+nome = "HÁBITO"
+descricao = " "
+tipo = "pedra_cryptex"
+icon = ExtResource("1_wre4q")
+metadata/_custom_type_script = "uid://sn72ygx3yt3k"
