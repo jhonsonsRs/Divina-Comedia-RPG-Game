@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://rditpd60buj1"]
+
+[ext_resource type="Script" uid="uid://bm6cujkdfovi2" path="res://Scripts/cryptex_menu.gd" id="1_a1xu1"]
+
+[node name="CryptexMenu" type="Control" unique_id=1107544100]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a1xu1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1093541223]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1897790281]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot0" type="VBoxContainer" parent="HBoxContainer" unique_id=161500747]
+layout_mode = 2
+
+[node name="BtnUp" type="Button" parent="HBoxContainer/Slot0" unique_id=676765407]
+layout_mode = 2
+text = "^"
+
+[node name="Letra" type="Label" parent="HBoxContainer/Slot0" unique_id=1873309796]
+layout_mode = 2
+text = " A"
+
+[node name="BtnDown" type="Button" parent="HBoxContainer/Slot0" unique_id=1971606456]
+layout_mode = 2
+text = "v"
+
+[node name="Slot1" type="VBoxContainer" parent="HBoxContainer" unique_id=126964948]
+layout_mode = 2
+
+[node name="BtnUp" type="Button" parent="HBoxContainer/Slot1" unique_id=267408044]
+layout_mode = 2
+text = "^"
+
+[node name="Letra" type="Label" parent="HBoxContainer/Slot1" unique_id=1225486721]
+layout_mode = 2
+text = " A"
+
+[node name="BtnDown" type="Button" parent="HBoxContainer/Slot1" unique_id=569341983]
+layout_mode = 2
+text = "v"
+
+[node name="Slot2" type="VBoxContainer" parent="HBoxContainer" unique_id=1415252299]
+layout_mode = 2
+
+[node name="BtnUp" type="Button" parent="HBoxContainer/Slot2" unique_id=1629920132]
+layout_mode = 2
+text = "^"
+
+[node name="Letra" type="Label" parent="HBoxContainer/Slot2" unique_id=1609494311]
+layout_mode = 2
+text = " A"
+
+[node name="BtnDown" type="Button" parent="HBoxContainer/Slot2" unique_id=1442876118]
+layout_mode = 2
+text = "v"
+
+[node name="Slot3" type="VBoxContainer" parent="HBoxContainer" unique_id=1048156059]
+layout_mode = 2
+
+[node name="BtnUp" type="Button" parent="HBoxContainer/Slot3" unique_id=2140232465]
+layout_mode = 2
+text = "^"
+
+[node name="Letra" type="Label" parent="HBoxContainer/Slot3" unique_id=334621382]
+layout_mode = 2
+text = " A"
+
+[node name="BtnDown" type="Button" parent="HBoxContainer/Slot3" unique_id=1355893022]
+layout_mode = 2
+text = "v"
+
+[node name="Slot4" type="VBoxContainer" parent="HBoxContainer" unique_id=563610727]
+layout_mode = 2
+
+[node name="BtnUp" type="Button" parent="HBoxContainer/Slot4" unique_id=1439665577]
+layout_mode = 2
+text = "^"
+
+[node name="Letra" type="Label" parent="HBoxContainer/Slot4" unique_id=748744550]
+layout_mode = 2
+text = " A"
+
+[node name="BtnDown" type="Button" parent="HBoxContainer/Slot4" unique_id=1520960729]
+layout_mode = 2
+text = "v"
+
+[node name="Slot5" type="VBoxContainer" parent="HBoxContainer" unique_id=1522278081]
+layout_mode = 2
+
+[node name="BtnUp" type="Button" parent="HBoxContainer/Slot5" unique_id=962834122]
+layout_mode = 2
+text = "^"
+
+[node name="Letra" type="Label" parent="HBoxContainer/Slot5" unique_id=2126655206]
+layout_mode = 2
+text = " A"
+
+[node name="BtnDown" type="Button" parent="HBoxContainer/Slot5" unique_id=917900191]
+layout_mode = 2
+text = "v"
+
+[node name="Slot6" type="VBoxContainer" parent="HBoxContainer" unique_id=2031048306]
+layout_mode = 2
+
+[node name="BtnUp" type="Button" parent="HBoxContainer/Slot6" unique_id=1686053636]
+layout_mode = 2
+text = "^"
+
+[node name="Letra" type="Label" parent="HBoxContainer/Slot6" unique_id=107566854]
+layout_mode = 2
+text = " A"
+
+[node name="BtnDown" type="Button" parent="HBoxContainer/Slot6" unique_id=1618890150]
+layout_mode = 2
+text = "v"
+
+[node name="Confirmar" type="Button" parent="." unique_id=975680281]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 235.0
+offset_right = 312.0
+offset_bottom = 266.0
+text = "Abrir Cryptex
+"
+
+[connection signal="pressed" from="Confirmar" to="." method="_on_btn_confirmar_pressed"]

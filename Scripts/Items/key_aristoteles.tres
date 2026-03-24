@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://knpwdb44oq8s"]
+
+[ext_resource type="Texture2D" uid="uid://3vne6tdttsfu" path="res://Assets/key_icon.png" id="1_3kked"]
+[ext_resource type="Script" uid="uid://sn72ygx3yt3k" path="res://Scripts/Items/ItemData.gd" id="2_upsys"]
+
+[resource]
+script = ExtResource("2_upsys")
+id = "key_aristoteles"
+nome = "Chave de Aristóteles"
+descricao = "Chave para o portão final"
+tipo = "chave"
+icon = ExtResource("1_3kked")
+metadata/_custom_type_script = "uid://sn72ygx3yt3k"

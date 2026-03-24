@@ -1,7 +1,7 @@
 extends Node
 class_name EnemyStateMachine
 
-@export var enemy: CharacterBody2D
+@export var enemy: Node2D
 var current_state: EnemyState
 
 func _ready() -> void:
@@ -17,6 +17,9 @@ func _iniciar_maquina() -> void:
 			
 	if has_node("Follow"):
 		current_state = $Follow
+		current_state.enter()
+	else:
+		current_state = $Idle
 		current_state.enter()
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ifwvq5ho3b0s"]
+[gd_scene format=3 uid="uid://ifwvq5ho3b0s"]
 
 [ext_resource type="Script" uid="uid://c8gb86f42bj72" path="res://Scripts/boss_guardiao.gd" id="1_2wxno"]
 [ext_resource type="Texture2D" uid="uid://b4qvutow8yidc" path="res://Assets/Enemy/boss2.png" id="2_w7xhi"]
@@ -488,11 +488,11 @@ size = Vector2(65, 74)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2wxno"]
 radius = 214.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["BossGroup"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1273799158 groups=["BossGroup"]]
 motion_mode = 1
 script = ExtResource("1_2wxno")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=69552516]
 texture = ExtResource("2_w7xhi")
 offset = Vector2(-6, 0)
 flip_h = true
@@ -500,71 +500,69 @@ hframes = 10
 vframes = 8
 frame = 70
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_doye7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=620829054]
+libraries/ = SubResource("AnimationLibrary_doye7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1872361671]
 position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_j5s8p")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=442002414]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_h1ccv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=317392214]
 position = Vector2(-1, 6)
 shape = SubResource("CapsuleShape2D_37ha5")
 
-[node name="AuraArea2D" type="Area2D" parent="."]
+[node name="AuraArea2D" type="Area2D" parent="." unique_id=666079451]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AuraArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AuraArea2D" unique_id=91716423]
 shape = SubResource("CircleShape2D_5fk4n")
 
-[node name="AuraTimer" type="Timer" parent="."]
+[node name="AuraTimer" type="Timer" parent="." unique_id=456229628]
 wait_time = 3.0
 one_shot = true
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1386428856]
 script = ExtResource("4_p2ebq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=124283577]
 position = Vector2(10, -4.5)
 shape = SubResource("RectangleShape2D_mo3bt")
 disabled = true
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("enemy")]
+[node name="StateMachine" type="Node" parent="." unique_id=2054915235 node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_caihe")
 enemy = NodePath("..")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=290699405]
 script = ExtResource("6_ecndr")
 
-[node name="Chase" type="Node" parent="StateMachine"]
+[node name="Chase" type="Node" parent="StateMachine" unique_id=486893495]
 script = ExtResource("7_gxo07")
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" unique_id=1828864338]
 script = ExtResource("8_nfh86")
 
-[node name="Hurt" type="Node" parent="StateMachine"]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=167650598]
 script = ExtResource("9_xn6g7")
 
-[node name="Death" type="Node" parent="StateMachine"]
+[node name="Death" type="Node" parent="StateMachine" unique_id=1336777419]
 script = ExtResource("10_5dvfd")
 
-[node name="BossTriger" type="Area2D" parent="." node_paths=PackedStringArray("boss_node", "boss_hud")]
+[node name="BossTriger" type="Area2D" parent="." unique_id=231015275 node_paths=PackedStringArray("boss_node", "boss_hud")]
 script = ExtResource("11_w7xhi")
 boss_node = NodePath("..")
 boss_hud = NodePath("../UI")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BossTriger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossTriger" unique_id=1250205530]
 shape = SubResource("CircleShape2D_2wxno")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1793944159]
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
+[node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=692435761]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

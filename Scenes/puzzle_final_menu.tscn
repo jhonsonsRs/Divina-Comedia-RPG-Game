@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cxugrvytuqg74"]
+
+[ext_resource type="Script" uid="uid://rhk7tu8m6idv" path="res://Scripts/puzzle_final_menu.gd" id="1_mfben"]
+
+[node name="PuzzleFinalMenu" type="Control" unique_id=355431571]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mfben")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=732643517]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.57254905)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1405292504]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 22.0
+offset_right = 442.0
+offset_bottom = 230.0
+bbcode_enabled = true
+
+[node name="BtnNatureza" type="Button" parent="." unique_id=597578131]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 264.0
+offset_right = 105.0
+offset_bottom = 279.0
+
+[node name="BtnRazao" type="Button" parent="." unique_id=682324546]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 261.0
+offset_right = 231.0
+offset_bottom = 276.0
+
+[node name="BtnAto" type="Button" parent="." unique_id=300944194]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 262.0
+offset_right = 365.0
+offset_bottom = 277.0
+
+[node name="BtnHabito" type="Button" parent="." unique_id=1028479499]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 261.0
+offset_right = 490.0
+offset_bottom = 276.0
+
+[connection signal="pressed" from="BtnNatureza" to="." method="_on_btn_natureza_pressed"]
+[connection signal="pressed" from="BtnRazao" to="." method="_on_btn_razao_pressed"]
+[connection signal="pressed" from="BtnAto" to="." method="_on_btn_ato_pressed"]
+[connection signal="pressed" from="BtnHabito" to="." method="_on_btn_habito_pressed"]

@@ -8,6 +8,7 @@ signal maquina_consertada
 signal balanca_equilibrada
 signal lanterna_entregue
 signal caixa_quebrada
+signal cryptex_liberado
 
 var inventory : Array[ItemData] = []
 
@@ -24,7 +25,9 @@ var quest_completion := {
 	"quest_heraclito" : false, 
 	"colete_chave_heraclito" : false,
 	"explore_nivel_3" : false,
-	"quest_aristoteles" : false
+	"quest_aristoteles" : false,
+	"colete_chave_aristoteles" : false,
+	"acabou_quest" : false
 }
 
 var items := {

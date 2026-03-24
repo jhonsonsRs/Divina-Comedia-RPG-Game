@@ -1,7 +1,7 @@
 extends Node
 class_name EnemyState
 
-var enemy: CharacterBody2D
+var enemy: Node2D
 
 func enter():
 	pass

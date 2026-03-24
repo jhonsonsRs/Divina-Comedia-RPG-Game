@@ -15,6 +15,7 @@ enum QuestID {
 	ColeteChaveHeraclito,
 	ExploreNivel3,
 	QuestAristoteles,
+	ColeteChaveAristoteles,
 	Acabou
 }
 var current_quest : Quest
@@ -33,6 +34,7 @@ var quest_types = {
 	QuestID.ColeteChaveHeraclito : Quest_ColeteChaveHeraclito,
 	QuestID.ExploreNivel3 : Quest_ExploreNivel3,
 	QuestID.QuestAristoteles : Quest_Aristoteles,
+	QuestID.ColeteChaveAristoteles : Quest_ColeteChaveAristoteles,
 	QuestID.Acabou : Quest_Acabou
 }
 

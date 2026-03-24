@@ -9,7 +9,7 @@ var can_start_dialog : bool = true
 @export var npc_id : String = "homero_dialog_1"
 @export var dialog_1 : String = "homero_dialog"
 @export var dialog_2 : String = "homero_dialog_final"
-@export var quest_necessaria : String = "colete_chave_homero"
+@export var quest_necessaria : String = "colete_chave_aristoteles"
 
 @onready var anim_player = get_node_or_null("AnimationPlayer")
 @onready var anim_tree = get_node_or_null("AnimationTree")

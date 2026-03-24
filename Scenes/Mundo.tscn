@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://3i3q5ut8fjkm" path="res://Scripts/Cutscenes/CutscenePlayer.gd" id="7_xk7c1"]
 [ext_resource type="PackedScene" uid="uid://klk3pebhxkl0" path="res://Scenes/gear_machine_menu.tscn" id="8_w8oxd"]
 [ext_resource type="AudioStream" uid="uid://ymdr562nq2ec" path="res://Assets/Sounds/trovao2.mp3" id="8_xk7c1"]
+[ext_resource type="PackedScene" uid="uid://cxugrvytuqg74" path="res://Scenes/puzzle_final_menu.tscn" id="9_ua1ij"]
+[ext_resource type="PackedScene" uid="uid://rditpd60buj1" path="res://Scenes/cryptex_menu.tscn" id="10_5j50w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dq4oj"]
 texture = ExtResource("3_yag4v")
@@ -254,6 +256,10 @@ text = "QUESTS"
 [node name="inventario" parent="UI" unique_id=1260222174 instance=ExtResource("7_pu0vx")]
 
 [node name="GearMachineMenu" parent="UI" unique_id=730576687 instance=ExtResource("8_w8oxd")]
+
+[node name="PuzzleFinalMenu" parent="UI" unique_id=355431571 instance=ExtResource("9_ua1ij")]
+
+[node name="CryptexMenu" parent="UI" unique_id=1107544100 instance=ExtResource("10_5j50w")]
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1829373761]
 

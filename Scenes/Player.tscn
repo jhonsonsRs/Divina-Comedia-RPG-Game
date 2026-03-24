@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://7jncnnw6x8tx" path="res://Assets/Sounds/sword1.ogg" id="11_ksbbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
-size = Vector2(14, 9.5)
+size = Vector2(14, 12.75)
 
 [sub_resource type="Animation" id="Animation_dewec"]
 length = 0.001
@@ -4143,7 +4143,7 @@ flip_v = true
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1150191932]
-position = Vector2(0, 10)
+position = Vector2(0, 8.375)
 shape = SubResource("RectangleShape2D_kyqiw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2136396455]
@@ -4198,7 +4198,7 @@ player = NodePath("../..")
 [node name="AttackCooldown" type="Timer" parent="." unique_id=979379070]
 wait_time = 0.5
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1435807703]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1435807703 groups=["Hurtbox_player"]]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("9_megsn")

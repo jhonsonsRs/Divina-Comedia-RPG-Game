@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck078r2sabmsr"]
+[gd_scene format=3 uid="uid://ck078r2sabmsr"]
 
 [ext_resource type="Script" uid="uid://b6gxywvwstpqy" path="res://Scripts/chave_heraclito.gd" id="1_jya0y"]
 [ext_resource type="Texture2D" uid="uid://dn23cotjr5d4f" path="res://Assets/key.png" id="2_gu7uq"]

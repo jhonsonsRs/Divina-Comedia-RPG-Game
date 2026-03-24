@@ -11,7 +11,8 @@ const MAPS := {
 	"arena_alexandre" = preload("res://Scenes/Levels/arena.tscn"),
 	"castelo_nivel3" = preload("res://Scenes/Levels/castelo_nivel3.tscn"),
 	"mapa_aristoteles" = preload("res://Scenes/mapa_aristoteles.tscn"),
-	"golem_room" = preload("res://Scenes/golem_room.tscn")
+	"golem_room" = preload("res://Scenes/golem_room.tscn"),
+	"boss_room_test" = preload("res://Scenes/Levels/boss_room_minos_test.tscn")
 }
 
 @onready var inventario = $UI/inventario
@@ -64,10 +65,13 @@ func configurar_teste_castelo():
 	GameState.mark_quest_complete("explore_nivel_2")
 	GameState.mark_quest_complete("quest_heraclito")
 	GameState.mark_quest_complete("colete_chave_heraclito")
+	GameState.mark_quest_complete("explore_nivel_3")
+	GameState.mark_quest_complete("quest_aristoteles")
+	GameState.mark_quest_complete("colete_chave_aristoteles")
 	
-	QuestManager.start_quest(QuestManager.QuestID.ExploreNivel3) 
+	QuestManager.start_quest(QuestManager.QuestID.Acabou) 
 	virgilio_parar_de_seguir() 
-	trocar_mapa("castelo_nivel3", "SpawnPlayer", "")
+	trocar_mapa("boss_room_test", "SpawnPlayer", "")
 
 func set_camera_limit(marker_pos_1: Vector2, marker_pos_2: Vector2) -> void:
 	camera.limit_left = min(marker_pos_1.x , marker_pos_2.x)

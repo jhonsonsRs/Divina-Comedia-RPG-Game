@@ -114,8 +114,7 @@ states/run/position = Vector2(337, 64)
 script = ExtResource("1_cdpml")
 npc_id = "aristoteles"
 dialog_1 = "aristoteles_dialog_1"
-dialog_2 = "aristoteles_dialog_2"
-quest_necessaria = "aristoteles_chave_alexandre"
+dialog_2 = "aristoteles_dialog_final"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097583886]
 texture = ExtResource("2_cdpml")

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c8hvjslrma6xm" path="res://Scenes/glass_box.tscn" id="2_dd7y5"]
 [ext_resource type="PackedScene" uid="uid://bxt2oojyrvjs8" path="res://Scenes/pedra_cryptex_habito.tscn" id="2_p2hab"]
 [ext_resource type="PackedScene" uid="uid://cnd4nu35rnn54" path="res://Scenes/golem.tscn" id="3_p2hab"]
+[ext_resource type="Script" uid="uid://bgwgxcq6wddh3" path="res://Scripts/Portal.gd" id="6_3ygcs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ygcs"]
 texture = ExtResource("1_vx17y")
@@ -116,6 +117,9 @@ texture = ExtResource("1_vx17y")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_3ygcs")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8mqb"]
+size = Vector2(44, 12)
+
 [node name="golem_room" type="Node2D" unique_id=1243367946]
 script = ExtResource("1_dd7y5")
 cena_pedra_habito = ExtResource("2_p2hab")
@@ -145,3 +149,13 @@ y_sort_enabled = true
 
 [node name="MarkerPedraHabito" type="Marker2D" parent="." unique_id=203204481]
 position = Vector2(236.97234, 217.8241)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1958578984]
+position = Vector2(238.6198, 262.93423)
+script = ExtResource("6_3ygcs")
+target_map_name = "mapa_aristoteles"
+target_spawn_name = "spawn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1654605016]
+position = Vector2(-1.6197968, -222.93423)
+shape = SubResource("RectangleShape2D_f8mqb")

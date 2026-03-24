@@ -8,6 +8,6 @@ script = ExtResource("1_7cup7")
 id = "razão_pedra"
 nome = "RAZÃO"
 descricao = " "
-tipo = "pedra_cryptex"
+tipo = "pedra_razao"
 icon = ExtResource("1_kgok6")
 metadata/_custom_type_script = "uid://sn72ygx3yt3k"

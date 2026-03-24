@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dtffj38f5ny7p"]
+
+[ext_resource type="Script" uid="uid://bbnj3fhjecsy6" path="res://Scripts/Hitboxes/Hitbox.gd" id="1_3onwi"]
+[ext_resource type="Script" uid="uid://s4opyro5ut57" path="res://Scripts/projetil.gd" id="1_e1qxg"]
+[ext_resource type="Texture2D" uid="uid://c5m3p13n32sfc" path="res://Assets/quadrado_rosa.png" id="2_e1qxg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tj6io"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qxg"]
+size = Vector2(16, 16)
+
+[node name="projetil" type="Area2D" unique_id=1134366326]
+script = ExtResource("1_e1qxg")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1460248314]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_3onwi")
+damage = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Hitbox" unique_id=1471395069]
+z_index = 1
+texture = ExtResource("2_e1qxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1727281026]
+shape = SubResource("RectangleShape2D_tj6io")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=819028503]
+shape = SubResource("RectangleShape2D_e1qxg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

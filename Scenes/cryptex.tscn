@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bsai1bvag0o5f"]
+
+[ext_resource type="Texture2D" uid="uid://wc4dwnbdcf6k" path="res://Assets/cryptex.png" id="1_jphkv"]
+[ext_resource type="Script" uid="uid://dm8ngv5mk2408" path="res://Scripts/cryptex.gd" id="1_jvexe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvexe"]
+size = Vector2(16.75, 3.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sh218"]
+radius = 31.016125
+
+[node name="Cryptex" type="StaticBody2D" unique_id=1881519020]
+script = ExtResource("1_jvexe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=536308307]
+scale = Vector2(0.05500004, 0.04375002)
+texture = ExtResource("1_jphkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=158002598]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_jvexe")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=179507951]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1722996694]
+shape = SubResource("CircleShape2D_sh218")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

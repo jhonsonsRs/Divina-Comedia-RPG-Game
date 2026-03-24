@@ -2220,7 +2220,7 @@ quest_necessaria = "colete_chave_aristoteles"
 position = Vector2(456, 468)
 
 [node name="Spawn" type="Marker2D" parent="Spawns" unique_id=1497350635]
-position = Vector2(456, 279)
+position = Vector2(456, 305)
 
 [node name="limit_tl" type="Marker2D" parent="." unique_id=436136791]
 

@@ -5,7 +5,7 @@ var quest_id_string := "explore_nivel_3"
 var objective_text := "Explore o nível 3 do castelo"
 
 func _init():
-	self.quest_id = QuestManager.QuestID.ExploreNivel2
+	self.quest_id = QuestManager.QuestID.ExploreNivel3
 	
 func on_dialogue_finished(npc_id: String) -> void:
 	if npc_id == "aristoteles":

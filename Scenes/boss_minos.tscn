@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d3shnvjmqhn8u"]
+
+[ext_resource type="Script" uid="uid://p2y5ydggnepd" path="res://Scripts/boss_minos.gd" id="1_g8myk"]
+[ext_resource type="Texture2D" uid="uid://c37nv60nrrtii" path="res://Assets/quadrado_branco.png" id="2_bf3p2"]
+[ext_resource type="Script" uid="uid://bbnj3fhjecsy6" path="res://Scripts/Hitboxes/Hitbox.gd" id="3_81hla"]
+[ext_resource type="Texture2D" uid="uid://blu4t8avyo7xq" path="res://Assets/quadrado_verde.png" id="3_g8myk"]
+[ext_resource type="Script" uid="uid://bumgww6r3hmk" path="res://Scripts/Enemys/EnemyStateMachine.gd" id="5_iaxq6"]
+[ext_resource type="Script" uid="uid://4riaewguc7dr" path="res://Scripts/Hitboxes/Hurtbox.gd" id="5_v7vgk"]
+[ext_resource type="Script" uid="uid://dchwv3aqaor15" path="res://Scripts/boss_minos_idle.gd" id="6_dqg52"]
+[ext_resource type="Script" uid="uid://crp4e2egihyks" path="res://Scenes/boss_minos_ataque_varredura.gd" id="7_h82d8"]
+[ext_resource type="Script" uid="uid://fpc48qd6umcr" path="res://Scripts/boss_minos_ataque_tiro.gd" id="8_c46aa"]
+[ext_resource type="PackedScene" uid="uid://dtffj38f5ny7p" path="res://Scenes/projetil.tscn" id="9_bf3p2"]
+[ext_resource type="Script" uid="uid://dpn7ur6spk8a1" path="res://Scripts/boss_minos_ataque_esmagar.gd" id="10_81hla"]
+[ext_resource type="Script" uid="uid://dxrj8oawrgv2h" path="res://Scripts/boss_minos_stunned.gd" id="11_sve2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivyon"]
+size = Vector2(168, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aurnl"]
+size = Vector2(169, 16)
+
+[node name="BossMinos" type="Node2D" unique_id=1544182423]
+script = ExtResource("1_g8myk")
+
+[node name="Corpo" type="StaticBody2D" parent="." unique_id=1299521432]
+
+[node name="Sprite2D" type="Sprite2D" parent="Corpo" unique_id=499064723]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(10.5, 9.1875)
+texture = ExtResource("2_bf3p2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corpo" unique_id=373299309]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_ivyon")
+
+[node name="Cauda" type="Area2D" parent="." unique_id=978595481]
+position = Vector2(0, 28)
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("3_81hla")
+damage = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Cauda" unique_id=441563396]
+scale = Vector2(10.5625, 1)
+texture = ExtResource("3_g8myk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cauda" unique_id=2081606019]
+shape = SubResource("RectangleShape2D_aurnl")
+
+[node name="Hurtbox" type="Area2D" parent="Cauda" unique_id=209011574]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("5_v7vgk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cauda/Hurtbox" unique_id=1992177146]
+shape = SubResource("RectangleShape2D_aurnl")
+disabled = true
+
+[node name="BocaSpawn" type="Marker2D" parent="." unique_id=404130532]
+
+[node name="StateMachine" type="Node" parent="." unique_id=1442590272]
+script = ExtResource("5_iaxq6")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1657752749]
+script = ExtResource("6_dqg52")
+
+[node name="Timer" type="Timer" parent="StateMachine/Idle" unique_id=554024636]
+
+[node name="AtaqueVarredura" type="Node" parent="StateMachine" unique_id=1092437996]
+script = ExtResource("7_h82d8")
+
+[node name="AtaqueTiro" type="Node" parent="StateMachine" unique_id=903180446]
+script = ExtResource("8_c46aa")
+projetil = ExtResource("9_bf3p2")
+
+[node name="AtaqueEsmagar" type="Node" parent="StateMachine" unique_id=1399390585]
+script = ExtResource("10_81hla")
+
+[node name="Stunned" type="Node" parent="StateMachine" unique_id=1629075824]
+script = ExtResource("11_sve2j")
+
+[connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
